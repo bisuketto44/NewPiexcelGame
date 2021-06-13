@@ -1,0 +1,1668 @@
+fileFormatVersion: 2
+guid: 1fc49c7fa68188c478ded1db90435eaa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7868151921320176941
+    second: Santa_Claus_32x32_2
+  - first:
+      213: -4472028153609741403
+    second: Santa_Claus_32x32_10
+  - first:
+      213: -1113876630052577506
+    second: Santa_Claus_32x32_12
+  - first:
+      213: -5914745955393928485
+    second: Santa_Claus_32x32_13
+  - first:
+      213: -1090167856452248373
+    second: Santa_Claus_32x32_14
+  - first:
+      213: -4971650615102227394
+    second: Santa_Claus_32x32_16
+  - first:
+      213: -2816208317141280569
+    second: Santa_Claus_32x32_17
+  - first:
+      213: 7083548093714582566
+    second: Santa_Claus_32x32_18
+  - first:
+      213: -8762127174422762958
+    second: Santa_Claus_32x32_19
+  - first:
+      213: 9091553338591360070
+    second: Santa_Claus_32x32_20
+  - first:
+      213: 6273935293416655983
+    second: Santa_Claus_32x32_21
+  - first:
+      213: -5472309494430635494
+    second: Santa_Claus_32x32_22
+  - first:
+      213: 7489414068800205609
+    second: Santa_Claus_32x32_23
+  - first:
+      213: -7893824244539074096
+    second: Santa_Claus_32x32_24
+  - first:
+      213: 7640957507201447589
+    second: Santa_Claus_32x32_25
+  - first:
+      213: -7772719368837825587
+    second: Santa_Claus_32x32_26
+  - first:
+      213: 8365287490981441247
+    second: Santa_Claus_32x32_27
+  - first:
+      213: -3484606879954545689
+    second: Santa_Claus_32x32_29
+  - first:
+      213: 2501590003422806592
+    second: Santa_Claus_32x32_30
+  - first:
+      213: 616424846737188768
+    second: Santa_Claus_32x32_31
+  - first:
+      213: -8041059950691266729
+    second: Santa_Claus_32x32_32
+  - first:
+      213: -8954302520193535939
+    second: Santa_Claus_32x32_33
+  - first:
+      213: 4390820159735665420
+    second: Santa_Claus_32x32_34
+  - first:
+      213: 2049831374862105654
+    second: Santa_Claus_32x32_35
+  - first:
+      213: -1184341355167695046
+    second: Santa_Claus_32x32_36
+  - first:
+      213: 7236760421090002636
+    second: Santa_Claus_32x32_37
+  - first:
+      213: -8938807825107859122
+    second: Santa_Claus_32x32_38
+  - first:
+      213: 7979275609625508063
+    second: Santa_Claus_32x32_39
+  - first:
+      213: -9053843963522222985
+    second: Santa_Claus_32x32_40
+  - first:
+      213: 4706153989633599270
+    second: Santa_Claus_32x32_41
+  - first:
+      213: 2718563720917307313
+    second: Santa_Claus_32x32_42
+  - first:
+      213: -3364663718634755197
+    second: Santa_Claus_32x32_43
+  - first:
+      213: -3939847335833530197
+    second: Santa_Claus_32x32_44
+  - first:
+      213: -5498207049684837490
+    second: Santa_Claus_32x32_45
+  - first:
+      213: -6913672047209543325
+    second: Santa_Claus_32x32_46
+  - first:
+      213: -2975029811617748300
+    second: Santa_Claus_32x32_47
+  - first:
+      213: 8023820930155396518
+    second: Santa_Claus_32x32_48
+  - first:
+      213: 3464541956158285677
+    second: Santa_Claus_32x32_49
+  - first:
+      213: 4340334403186378746
+    second: Santa_Claus_32x32_50
+  - first:
+      213: 4419570331113226169
+    second: Santa_Claus_32x32_51
+  - first:
+      213: -4327394921948227828
+    second: Santa_Claus_32x32_52
+  - first:
+      213: 7595856554605653254
+    second: Santa_Claus_32x32_53
+  - first:
+      213: -8586539356824714017
+    second: Santa_Claus_32x32_54
+  - first:
+      213: -4487146065104573910
+    second: Santa_Claus_32x32_55
+  - first:
+      213: 3375159663201374773
+    second: Santa_Claus_32x32_56
+  - first:
+      213: 4821467847806834450
+    second: Santa_Claus_32x32_57
+  - first:
+      213: -9023951711287979568
+    second: Santa_Claus_32x32_58
+  - first:
+      213: -3491171936585768535
+    second: Santa_Claus_32x32_59
+  - first:
+      213: -4411324005374504203
+    second: Santa_Claus_32x32_60
+  - first:
+      213: -4706673861888506050
+    second: Santa_Claus_32x32_61
+  - first:
+      213: 7027966927464373642
+    second: Santa_Claus_32x32_62
+  - first:
+      213: 3380258157404148989
+    second: Santa_Claus_32x32_63
+  - first:
+      213: 3183776428918871813
+    second: Santa_Front
+  - first:
+      213: 4144325078107667692
+    second: Santa_Claus_32x32_65
+  - first:
+      213: -1784352420270226271
+    second: Santa_Claus_32x32_66
+  - first:
+      213: 7308928689296393182
+    second: Santa_Claus_32x32_67
+  - first:
+      213: 3782439546866401692
+    second: Santa_Claus_32x32_72
+  - first:
+      213: 1791826310870665390
+    second: Santa_Claus_32x32_73
+  - first:
+      213: -535089640686492311
+    second: Santa_Claus_32x32_74
+  - first:
+      213: -475236910962715028
+    second: Collabo12-1
+  - first:
+      213: 4615928216863492106
+    second: Collabo12-2
+  - first:
+      213: 7409376794833503615
+    second: Collabo12-3
+  - first:
+      213: 7070187266835103261
+    second: Collabo12-4
+  - first:
+      213: -2573443974602569882
+    second: Collabo12-5
+  - first:
+      213: 1391929881648587839
+    second: Collabo12-6
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 416
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2da8153c7a413d60800000000000000
+      internalID: 7868151921320176941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_10
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 352
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab9b8e861a20f1c0800000000000000
+      internalID: -4472028153609741403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_12
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 352
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f5b164b17ba80f0800000000000000
+      internalID: -1113876630052577506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_13
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 352
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd2011824e99aeda0800000000000000
+      internalID: -5914745955393928485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_14
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 352
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcc5d9a4c12fed0f0800000000000000
+      internalID: -1090167856452248373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3cba734b16210bb0800000000000000
+      internalID: -4971650615102227394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 290
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c81b4bd471dae8d0800000000000000
+      internalID: -2816208317141280569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62cc0430671dd4260800000000000000
+      internalID: 7083548093714582566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_19
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23aebb332cba66680800000000000000
+      internalID: -8762127174422762958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 290
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6443143a79fab2e70800000000000000
+      internalID: 9091553338591360070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_21
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 288
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6cc2eb98ee711750800000000000000
+      internalID: 6273935293416655983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 192
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ae67322837e04b0800000000000000
+      internalID: -5472309494430635494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_23
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 288
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92336aa3a6ebfe760800000000000000
+      internalID: 7489414068800205609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_24
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 290
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d9d1e04ca0837290800000000000000
+      internalID: -7893824244539074096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_25
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 288
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6b8988e522a0a60800000000000000
+      internalID: 7640957507201447589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_26
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 288
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcb7f996ae0c12490800000000000000
+      internalID: -7772719368837825587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_27
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 290
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdea7ffd6a8771470800000000000000
+      internalID: 8365287490981441247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_29
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 226
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e35d62418034afc0800000000000000
+      internalID: -3484606879954545689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_30
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 226
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0424fa7aade67b220800000000000000
+      internalID: 2501590003422806592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_31
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 226
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a7ae74d12bfd8800800000000000000
+      internalID: 616424846737188768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_32
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 226
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75f4d65049a686090800000000000000
+      internalID: -8041059950691266729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_33
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 226
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d30ba70cc4debb380800000000000000
+      internalID: -8954302520193535939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_34
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 226
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c031ba5fba35fec30800000000000000
+      internalID: 4390820159735665420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_35
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 226
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63c3b1466c6727c10800000000000000
+      internalID: 2049831374862105654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_36
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 226
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3fbc68ffcf509fe0800000000000000
+      internalID: -1184341355167695046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_37
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 226
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc60dafc2432e6460800000000000000
+      internalID: 7236760421090002636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_38
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 226
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49c6f494a9f2f380800000000000000
+      internalID: -8938807825107859122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_39
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 226
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd8baa414e41cbe60800000000000000
+      internalID: 7979275609625508063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_40
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 226
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 774717e62e84a5280800000000000000
+      internalID: -9053843963522222985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_41
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 174
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 627e56a8e1e9f4140800000000000000
+      internalID: 4706153989633599270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_42
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 174
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf4a84fc474ab520800000000000000
+      internalID: 2718563720917307313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_43
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 174
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38b6126bc205e41d0800000000000000
+      internalID: -3364663718634755197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_44
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 174
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba09f56e8b9d259c0800000000000000
+      internalID: -3939847335833530197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_45
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 174
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8b9cfda1d172b3b0800000000000000
+      internalID: -5498207049684837490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_46
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 174
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 369078c37e3bd00a0800000000000000
+      internalID: -6913672047209543325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_47
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 174
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4baa352162296b6d0800000000000000
+      internalID: -2975029811617748300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_48
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 174
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6adb14bbf965a5f60800000000000000
+      internalID: 8023820930155396518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_49
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 174
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d67604e9d86841030800000000000000
+      internalID: 3464541956158285677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_50
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 174
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af7c454c427fb3c30800000000000000
+      internalID: 4340334403186378746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_51
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 174
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bffbdddcc7755d30800000000000000
+      internalID: 4419570331113226169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_52
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 174
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c07527afe3102f3c0800000000000000
+      internalID: -4327394921948227828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_53
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 98
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60da716ba47e96960800000000000000
+      internalID: 7595856554605653254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_54
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 98
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd44d8ac2fb76d880800000000000000
+      internalID: -8586539356824714017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_55
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 98
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2a662e7d647ab1c0800000000000000
+      internalID: -4487146065104573910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_56
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 98
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5325851d4d9f6de20800000000000000
+      internalID: 3375159663201374773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_57
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 98
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2175e7c567b49e240800000000000000
+      internalID: 4821467847806834450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_58
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 98
+        width: 60
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d1d662cabb74c280800000000000000
+      internalID: -9023951711287979568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_59
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 98
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a12ef5ee9ddc8fc0800000000000000
+      internalID: -3491171936585768535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_60
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 98
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f2df767034d7c2c0800000000000000
+      internalID: -4411324005374504203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_61
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 98
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3705844f098eaeb0800000000000000
+      internalID: -4706673861888506050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_62
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 98
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8d15bc4faa588160800000000000000
+      internalID: 7027966927464373642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_63
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 98
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df4d03182e619ee20800000000000000
+      internalID: 3380258157404148989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Front
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 68
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50798f13bcb0f2c20800000000000000
+      internalID: 3183776428918871813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_65
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 24
+        width: 68
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cecb95273b9938930800000000000000
+      internalID: 4144325078107667692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_66
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 24
+        width: 68
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a44fab7de4bc37e0800000000000000
+      internalID: -1784352420270226271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_67
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 24
+        width: 68
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed34c262be78e6560800000000000000
+      internalID: 7308928689296393182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_72
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 24
+        width: 68
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c918c574abced7430800000000000000
+      internalID: 3782439546866401692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_73
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 24
+        width: 68
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea805a64988ddd810800000000000000
+      internalID: 1791826310870665390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Santa_Claus_32x32_74
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 24
+        width: 68
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 965e3eb8ecaf298f0800000000000000
+      internalID: -535089640686492311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Collabo12-1
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 352
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66d9e12c8e9769f0800000000000000
+      internalID: -475236910962715028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Collabo12-2
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 352
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a08c9dac1421f0040800000000000000
+      internalID: 4615928216863492106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Collabo12-3
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 352
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f75c21730f463d660800000000000000
+      internalID: 7409376794833503615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Collabo12-4
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 352
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1e32371cd95e1260800000000000000
+      internalID: 7070187266835103261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Collabo12-5
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 352
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 667c17cf65a494cd0800000000000000
+      internalID: -2573443974602569882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Collabo12-6
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 352
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f346ae34ad0215310800000000000000
+      internalID: 1391929881648587839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

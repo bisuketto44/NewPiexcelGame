@@ -1,0 +1,7 @@
+
+PlayerPlefasに保存した変数一覧
+
+1 : Motivation_Contoroller / CurrentMotivationValue / スタミナの現在値を設定する変数
+2 : / InGamePassedTime / ゲーム内の現在の経過時間を計測する変数
+3 : / QuitTime / 終了時間　(DateTime構造体をバイナリーデータでString型として保存し、再構築する)
+4 : / GameActivatedAtLastOnce / 前回のデータが存在するかを見る boolとしてint変数(別に必要ないかも)
