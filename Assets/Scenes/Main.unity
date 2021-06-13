@@ -37092,7 +37092,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +100%
+  m_Text: +0%
 --- !u!222 &598092472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -68527,6 +68527,7 @@ MonoBehaviour:
   StyleStatusManager: {fileID: 332526270}
   moneycontoroller: {fileID: 1592419211}
   CantPuerChasePannelObje: {fileID: 2084064107}
+  itemEffective_VisulalUpdate: {fileID: 1615812186}
   boolPC1: 0
   boolPC2: 0
 --- !u!1 &1039704336
@@ -93497,7 +93498,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +100%
+  m_Text: +0%
 --- !u!222 &1390959115
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -100212,7 +100213,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +100%
+  m_Text: +0%
 --- !u!222 &1544291413
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -103841,6 +103842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1615812184}
   - component: {fileID: 1615812185}
+  - component: {fileID: 1615812186}
   m_Layer: 0
   m_Name: LiveEffective
   m_TagString: Untagged
@@ -103880,6 +103882,23 @@ MonoBehaviour:
   MotivationEffectives: []
   CollaboChaeEffcrive: []
   LiveTimeEffective: []
+--- !u!114 &1615812186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615812183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8399a5671c202480eb90ebd6b990500e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ViewerUpRateText: {fileID: 1390959114}
+  ViewrRetantionRateTex: {fileID: 598092471}
+  HiperChatraretyUpText: {fileID: 1544291412}
+  MotivationHealRateUpText: {fileID: 2015721131}
+  live_Data: {fileID: 1615812185}
 --- !u!1 &1615998571
 GameObject:
   m_ObjectHideFlags: 0
@@ -124656,7 +124675,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +100%
+  m_Text: +0%
 --- !u!222 &2015721132
 CanvasRenderer:
   m_ObjectHideFlags: 0

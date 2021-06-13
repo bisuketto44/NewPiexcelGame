@@ -42,10 +42,14 @@ public class Item_Purchase : MonoBehaviour
     [Tooltip("マネーシステムをコントロールするスクリプト")]
     [SerializeField]
     MoneyContoroller moneycontoroller;
-    
+
     [Tooltip("所持金が足りませんパネルを表示する")]
     [SerializeField]
     GameObject CantPuerChasePannelObje;
+
+    [Tooltip("効果テキストをアップデートする")]
+    [SerializeField]
+    ItemEffective_VisulalUpdate itemEffective_VisulalUpdate;
 
     private int StyleKitCountInt = 0;
 
@@ -67,6 +71,7 @@ public class Item_Purchase : MonoBehaviour
             //費用を所持金から引く
             var costAmount = (itemdatabase.items[temp].cost * quantity);
             moneycontoroller.SpendMoney(costAmount);
+
         }
 
         _dicideItemsWind = GameObject.Find("Shop_Diceide");
@@ -134,8 +139,13 @@ public class Item_Purchase : MonoBehaviour
         //アイテムが売り切れかどうかを判定するメソッドに値を飛ばす
         ShopCondition.InActivateShopBtns(temp, quantity);
 
+        //購入したアイテムの効果の累計価テキストを表示する
+        itemEffective_VisulalUpdate.UpdateRatioTexts();
+
 
     }
+
+
 
     private void ActivatePC1()
     {
