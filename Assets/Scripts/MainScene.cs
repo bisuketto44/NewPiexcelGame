@@ -75,8 +75,9 @@ public class MainScene : MonoBehaviour
         {
             var StoreBOX = GameObject.FindWithTag("LayoutStoreBOX").GetComponent<Layout_Items_StoreBOX>();
             SaveData.Instance.StoreBox[19].transform.GetChild(1).gameObject.SetActive(true);
-           SaveData.Instance.StoreBoxIns[19].transform.GetChild(1).gameObject.SetActive(true);
+            SaveData.Instance.StoreBoxIns[19].transform.GetChild(1).gameObject.SetActive(true);
             itemPurchase.boolPC1 = false;
+
         }
         if (itemPurchase.boolPC2 == true)
         {
