@@ -39,10 +39,16 @@ public class Style_Status_Management : MonoBehaviour
     private Activate_RaderChart RaderChart;
 
 
-    void Awake()
+    void OnEnable()
     {
+        //=================================================================================
+        //データリロード
+        //=================================================================================
+        SaveData.Instance.Reload();
+
         //スタイルのレベルを全部0で初期化
         StyleSatus = new int[] { 0, 0, 0, 0, 0, 0 };
+
         LeftStylePoint = 0;
 
         //最初はボタンを使用できないように
@@ -65,6 +71,7 @@ public class Style_Status_Management : MonoBehaviour
         //購入したスタイルポイントを残りのポイントに追加
         LeftStylePoint += StyleKitPurchase;
         LeftStylePointText.text = "残りポイント : " + LeftStylePoint.ToString();
+        Debug.Log(LeftStylePoint);
 
         //新しくスタイルポイントを獲得した場合、レベルがカンストしているスタイルを除きボタンを有効化
         for (int i = 0; i < StyleUpBtn.Length; i++)
@@ -82,7 +89,7 @@ public class Style_Status_Management : MonoBehaviour
     public void StyleEnhanceBtn(int whichStyle)
     {
 
-        //レベルを1UPしてテキストに反映
+        //レベルを1UPしてテキストに反映、データを保存
         StyleSatus[whichStyle] += 1;
         StyleStatusText[whichStyle].text = StyleSatus[whichStyle].ToString() + "/25";
 
@@ -108,7 +115,7 @@ public class Style_Status_Management : MonoBehaviour
         }
 
         //リストの強化状況に、現在のスタイルのレベルに合わせたValueをセットしてあげる
-        LiveData.StyleEffective[whichStyle].BaseIncrease = Style_LiveEnhance_Value[StyleSatus[whichStyle] - 1];
+        SaveData.Instance.Style_Effective[whichStyle].BaseIncrease = Style_LiveEnhance_Value[StyleSatus[whichStyle] - 1];
 
     }
 
@@ -132,7 +139,7 @@ public class Style_Status_Management : MonoBehaviour
             RaderChart.ReSetStyleRedaerChart();
 
             //初期効果に戻す
-            LiveData.StyleEffective[i].BaseIncrease = 10;
+            SaveData.Instance.Style_Effective[i].BaseIncrease = 10;
 
         }
 

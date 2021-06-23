@@ -11,6 +11,8 @@ public class Player_NPC : MonoBehaviour
     private float _tarminalPositionX;
     private float _tarminalPositionY;
 
+    public bool[] isProcessing;
+
     private float X;
     private float Y;
 
@@ -19,7 +21,6 @@ public class Player_NPC : MonoBehaviour
     private bool down;
     private bool left;
     private bool right;
-    private bool nowhere;
     private bool stop;
 
     //方向決定を呼び出す
@@ -30,25 +31,18 @@ public class Player_NPC : MonoBehaviour
 
     //立ち止まる時間
     private float CoolTime = 0.0f;
-    private float nowhereCoolTime = 0.0f;
 
-    private float ColisionCooltime = 0.0f;
 
     void Awake()
     {
+        isProcessing = new bool[] { true, true, true, true };
         stopcount = Random.Range(2, 5);
-        DicideDirection();
+        DiceideDirection();
 
     }
 
-
     void Update()
     {
-        ColisionCooltime += Time.deltaTime;
-        if (ColisionCooltime >= 3.0f)
-        {
-            ColisionCooltime = 0.0f;
-        }
 
         //X右移動なら
         if (right == true)
@@ -61,6 +55,7 @@ public class Player_NPC : MonoBehaviour
             {
                 PlayerAnimator.SetBool("EXITRIGHT", true);
                 PlayerAnimator.SetBool("STRATRIGHT", false);
+                right = false;
                 isdirection = true;
             }
         }
@@ -76,6 +71,7 @@ public class Player_NPC : MonoBehaviour
             {
                 PlayerAnimator.SetBool("EXITLEFT", true);
                 PlayerAnimator.SetBool("STRATLEFT", false);
+                left = false;
                 isdirection = true;
             }
         }
@@ -91,6 +87,7 @@ public class Player_NPC : MonoBehaviour
             {
                 PlayerAnimator.SetBool("EXITUP", true);
                 PlayerAnimator.SetBool("STARTUP", false);
+                up = false;
                 isdirection = true;
             }
         }
@@ -106,26 +103,9 @@ public class Player_NPC : MonoBehaviour
             {
                 PlayerAnimator.SetBool("EXITDOWN", true);
                 PlayerAnimator.SetBool("STARTDOWN", false);
+                down = false;
                 isdirection = true;
             }
-        }
-
-        //同じ座標に移動する場合
-        if (nowhere == true)
-        {
-            nowhereCoolTime += Time.deltaTime;
-            if (nowhereCoolTime <= 5f)
-            {
-
-            }
-            else
-            {
-                PlayerAnimator.SetBool("IDLES", false);
-                PlayerAnimator.SetBool("IDLEE", true);
-                nowhereCoolTime = 0.0f;
-                isdirection = true;
-            }
-
         }
 
         //定期的にストップ処理
@@ -162,12 +142,11 @@ public class Player_NPC : MonoBehaviour
                 down = false;
                 left = false;
                 right = false;
-                nowhere = false;
                 return;
             }
 
             //進行方向の変更を呼び出す
-            DicideDirection();
+            DiceideDirection();
             count++;
             isdirection = false;
         }
@@ -175,144 +154,120 @@ public class Player_NPC : MonoBehaviour
     }
 
 
-    void OnCollisionStay2D(Collision2D other)
+    private void DiceideDirection()
     {
-        if (ColisionCooltime <= 1.5f)
+        var num = 0;
+        List<int> directionList;
+        directionList = new List<int>();
+
+        directionList.Clear();
+
+        // 0上 1下 2左 3右で進める方向リストを作成
+        for (int i = 0; i < 4; i++)
         {
-            Debug.Log("CTです");
+            if (isProcessing[i] == true)
+            {
+                directionList.Add(i);
+            }
+
+        }
+
+        if (directionList == null)
+        {
+            //その場で待機に移行
             return;
         }
+        num = Random.Range(0, directionList.Count);
+        //最終決定された方向
+        var direction = directionList[num];
 
-        if (other.gameObject.tag == "Layout_Collision")
+        switch (direction)
         {
-            Debug.Log("衝突しました！");
-            if (up == true)
-            {
-                PlayerAnimator.SetBool("EXITUP", true);
-                PlayerAnimator.SetBool("STARTUP", false);
-                isdirection = true;
-
-            }
-            else if (down == true)
-            {
-                PlayerAnimator.SetBool("EXITDOWN", true);
-                PlayerAnimator.SetBool("STARTDOWN", false);
-                isdirection = true;
-
-            }
-            else if (left == true)
-            {
-                PlayerAnimator.SetBool("EXITLEFT", true);
-                PlayerAnimator.SetBool("STRATLEFT", false);
-                isdirection = true;
-
-            }
-            else if (right == true)
-            {
-                PlayerAnimator.SetBool("EXITRIGHT", true);
-                PlayerAnimator.SetBool("STRATRIGHT", false);
-                isdirection = true;
-
-            }
-            //移動不可に
-            up = false;
-            down = false;
-            left = false;
-            right = false;
-
-
-        }
-
-    }
-
-    //進行方向を決定するメソッド
-    public void DicideDirection()
-    {
-
-        //XかYかを決定
-        _XorY = Random.Range(0, 2);
-        if (_XorY == 0)
-        {
-            //X軸方向
-            _tarminalPositionX = (float)Random.Range((int)-2, (int)12);
-            //Xがマイナスなら左方向、プラスなら右
-            X = _tarminalPositionX - this.gameObject.transform.position.x;
-
-            if (X < 0)
-            {
-                left = true;
-                right = false;
-                up = false;
-                down = false;
-                nowhere = false;
-                PlayerAnimator.SetBool("STRATLEFT", true);
-                PlayerAnimator.SetBool("EXITLEFT", false);
-
-            }
-            else if (X > 0)
-            {
-                left = false;
-                right = true;
-                up = false;
-                down = false;
-                nowhere = false;
-                PlayerAnimator.SetBool("STRATRIGHT", true);
-                PlayerAnimator.SetBool("EXITRIGHT", false);
-
-            }
-            else if (X == 0)
-            {
-
-                left = false;
-                right = false;
-                up = false;
-                down = false;
-                nowhere = true;
-                PlayerAnimator.SetBool("IDLES", true);
-                PlayerAnimator.SetBool("IDLEE", false);
-
-            }
-        }
-        else if (_XorY == 1)
-        {
-            //Y軸方向
-            _tarminalPositionY = (float)Random.Range((int)-7, (int)4);
-            //Yがマイナスなら下方向、プラスなら上方向
-            Y = _tarminalPositionY - this.gameObject.transform.position.y;
-            if (Y < 0)
-            {
-                left = false;
-                right = false;
-                up = false;
-                down = true;
-                nowhere = false;
-                PlayerAnimator.SetBool("STARTDOWN", true);
-                PlayerAnimator.SetBool("EXITDOWN", false);
-
-            }
-            else if (Y > 0)
-            {
-                left = false;
-                right = false;
+            case 0:
                 up = true;
-                down = false;
-                nowhere = false;
-                PlayerAnimator.SetBool("STARTUP", true);
-                PlayerAnimator.SetBool("EXITUP", false);
+                break;
+            case 1:
+                down = true;
+                break;
+            case 2:
+                left = true;
+                break;
+            case 3:
+                right = true;
+                break;
+        }
 
-            }
-            else if (Y == 0f)
-            {
-                left = false;
-                right = false;
-                up = false;
-                down = false;
-                nowhere = true;
-                PlayerAnimator.SetBool("IDLES", true);
-                PlayerAnimator.SetBool("IDLEE", false);
+        DicideDistance();
 
-            }
+    }
+
+    //進行方向を決定するメソッド(上記のメソッド内で呼ぶ)
+    public void DicideDistance()
+    {
+        //現在座標を取得
+        var x = this.gameObject.transform.position.x;
+        var y = this.gameObject.transform.position.y;
+
+        //それぞれの方向の目的地計算
+        if (up == true)
+        {
+            //移動できる残り距離を計算
+            var leftY = (4 - y);
+            //その間でランダムな目的地を設定する
+            _tarminalPositionY = Random.Range((int)0, (int)leftY) + y;
+            PlayerAnimator.SetBool("STARTUP", true);
+            PlayerAnimator.SetBool("EXITUP", false);
+        }
+        else if (down == true)
+        {
+            var leftY = (-7 - y);
+            //下方向は0より大きくなることはない
+            _tarminalPositionY = Random.Range((int)leftY, (int)0) + y;
+            PlayerAnimator.SetBool("STARTDOWN", true);
+            PlayerAnimator.SetBool("EXITDOWN", false);
+        }
+        else if (left == true)
+        {
+            var leftX = (-2 - x);
+            _tarminalPositionX = Random.Range((int)leftX, (int)0) + x;
+            PlayerAnimator.SetBool("STRATLEFT", true);
+            PlayerAnimator.SetBool("EXITLEFT", false);
+        }
+        else if (right == true)
+        {
+            var leftX = (12 - x);
+            _tarminalPositionX = Random.Range((int)0, leftX) + x;
+            PlayerAnimator.SetBool("STRATRIGHT", true);
+            PlayerAnimator.SetBool("EXITRIGHT", false);
         }
 
     }
+
+    //ものに当たると、目的地を現在地に上書きし、移動を中断する。(外部からupdateの中身の変数はあまり弄らないほうがよさそう？移動系の処理は基本座標で操作したほうがよさげ？)
+    public void MotionInterruption(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                _tarminalPositionY = this.gameObject.transform.position.y;
+                break;
+            case 1:
+                _tarminalPositionY = this.gameObject.transform.position.y;
+                break;
+            case 2:
+                _tarminalPositionX = this.gameObject.transform.position.x;
+                break;
+            case 3:
+                _tarminalPositionX = this.gameObject.transform.position.x;
+                break;
+        }
+
+    }
+
+    // PlayerAnimator.SetBool("EXITUP", true);
+    // PlayerAnimator.SetBool("STARTUP", false);
+    // up = false;
+    // isdirection = true;を直接よんだらうまく処理できなかった。コードの構造自体を外部からいじるのは辞めたほうがよさそう。
+
 }
+

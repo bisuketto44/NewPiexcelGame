@@ -35,6 +35,13 @@ public class Motivation_Contoroller : MonoBehaviour
     //消費やる気ゲージ値
     public int ConsMotivationValue = 0;
 
+    //回復するまでに必要な時間と、強化後の時間
+    private float TimeToRecover = 60f;
+    private float UpdateTimeToRecover = 60f;
+
+    private float EnhanceValueAmount = 0f;
+
+
     private DateTime StartTime;
     private DateTime QuitTime;
     private DateTime TimePassedOutofGame;
@@ -50,7 +57,7 @@ public class Motivation_Contoroller : MonoBehaviour
 
     private bool boolMax = true;
 
-    void Start()
+    void Awake()
     {
         //前回のデータがあるなら前回の終了時間を読み込み
         if (PlayerPrefs.GetInt("isData") == 1)
@@ -88,21 +95,16 @@ public class Motivation_Contoroller : MonoBehaviour
         {
             InGamePassedTime += Time.deltaTime;
 
-            if (InGamePassedTime >= 60f)
-            {
-                minute = 1;
-            }
-
             if ((int)InGamePassedTime != (int)oldTime)
             {
-                TimeText.text = "あと " + minute.ToString() + ":" + (60f - (int)InGamePassedTime).ToString("00");
+                TimeText.text = "あと " + minute.ToString() + ":" + (TimeToRecover - (int)InGamePassedTime).ToString("00");
 
                 minute = 0;
-                if (InGamePassedTime >= 60f)
+                if (InGamePassedTime >= TimeToRecover)
                 {
                     CurrentMotivationValue += 1;
+                    InGamePassedTime -= TimeToRecover;
                     UpdateMotivationBar();
-                    InGamePassedTime -= 60f;
                 }
             }
             oldTime = InGamePassedTime;
@@ -114,21 +116,21 @@ public class Motivation_Contoroller : MonoBehaviour
     //ゲーム時間外での時間からスタミナの回復量を計算する
     private void CaluclateOutOfGameTime()
     {
-        var num = (int)PassedTime / 60;
+        //何回回復したかを計算
+        var num = ((int)PassedTime + (int)InGamePassedTime) / TimeToRecover;
+
         //0~10までで回復量を計算
-        var RecovaryValue = Mathf.Clamp(num, 0, 10);
+        var RecovaryValue = Mathf.Clamp((int)num, 0, 10);
         //回復分を足し合わせる
-        CurrentMotivationValue += RecovaryValue;
+        CurrentMotivationValue += (int)RecovaryValue;
         //回復量がいくつ足されてもMAXは10に設定
         CurrentMotivationValue = Mathf.Clamp(CurrentMotivationValue, 0, 10);
 
         //端数の秒数部分を切り取る
-        var second = PassedTime % 60;
+        var second = ((int)PassedTime + (int)InGamePassedTime) % TimeToRecover;
 
-        //経過時間をゲーム時間に適用
-        InGamePassedTime += (float)second;
-        //合算した経過時間を60秒単位にする
-        InGamePassedTime = InGamePassedTime % 60;
+        InGamePassedTime = second;
+        Debug.Log(InGamePassedTime);
     }
 
     /// <summary>
@@ -191,12 +193,13 @@ public class Motivation_Contoroller : MonoBehaviour
             boolMax = true;
             //Maxになったら次のカウントが１分で始まるようにリセット
             InGamePassedTime = 0;
+
         }
         else
         {
             boolMax = false;
         }
-
+        TimeToRecover = UpdateTimeToRecover;
         //やる気ポイントを保存
         PlayerPrefs.SetInt("LeftMotivationPT", CurrentMotivationValue);
 
@@ -213,6 +216,17 @@ public class Motivation_Contoroller : MonoBehaviour
         CurrentMotivationValue = CurrentMotivationValue - ConsMotivationValue;
         //ビジュアルアップデート
         UpdateMotivationBar();
+
+    }
+
+    public void CaluculationRecoverTime(float EnhanceValue)
+    {
+        //合計値を計算
+        EnhanceValueAmount += EnhanceValue;
+        //新しい回復時間を設定
+        UpdateTimeToRecover = 60f - (60f * EnhanceValueAmount);
+        Debug.Log(UpdateTimeToRecover);
+        Debug.Log(EnhanceValueAmount);
 
     }
 

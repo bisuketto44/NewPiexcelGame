@@ -11,11 +11,6 @@ public class MoneyContoroller : MonoBehaviour
     [SerializeField]
     private Text MoneyText;
 
-    void Awake()
-    {
-        PossesedMoney = 0;
-    }
-
     //お金を使う
     public void SpendMoney(int spendmoney)
     {

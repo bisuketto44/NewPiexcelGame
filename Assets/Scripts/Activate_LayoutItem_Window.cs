@@ -18,9 +18,9 @@ public class Activate_LayoutItem_Window : MonoBehaviour
         this.gameObject.SetActive(true);
 
         //配置済み or 名前のどちらかを表示
-        for (int i = 0; i < LayoutStore.whatBtn.Length; i++)
+        for (int i = 0; i < SaveData.Instance.whatBtn.Length; i++)
         {
-            if (LayoutStore.whatBtn[i] == true)
+            if (SaveData.Instance.whatBtn[i] == true)
             {
                 Btns[i].transform.GetChild(0).gameObject.SetActive(false);
                 Btns[i].transform.GetChild(1).gameObject.SetActive(true);

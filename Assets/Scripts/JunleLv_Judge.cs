@@ -7,7 +7,7 @@ public class JunleLv_Judge : MonoBehaviour
 {
     [Tooltip("各スライダーの経験値スクリプト")]
     [SerializeField]
-    LvUp_EXP[] EachSlider;
+    public LvUp_EXP[] EachSlider;
 
     [Tooltip("そのジャンルが配信に使用されたかを判定する")]
     [SerializeField]
@@ -28,12 +28,25 @@ public class JunleLv_Judge : MonoBehaviour
     //経験値バーを初期化してあげる
     void Awake()
     {
+        LiveJunleIncrement = new int[] { 50, 100, 150, 200, 250 };
+
         for (int i = 0; i < EachSlider.Length; i++)
         {
             EachSlider[i].initializationEXPtables();
+
+            if (SaveData.Instance.PreviousDataIsAvailableOrNot == false)
+            {
+                continue;
+            }
+
+            EachSlider[i].GiveExP(SaveData.Instance.ExpAmounts[i]);
+            //レベルテキストを更新
+            JunleLvText[i].text = "Lv" + EachSlider[i].currentLevel.ToString();
+            //各ジャンルの現在のレベルに合わせた増加値を再設定してあげる。
+            SaveData.Instance.junle_Effective[i].BaseIncrease = LiveJunleIncrement[EachSlider[i].currentLevel - 1];
         }
 
-        LiveJunleIncrement = new int[] { 50, 100, 150, 200, 250 };
+
     }
 
     /// <summary>
@@ -41,16 +54,18 @@ public class JunleLv_Judge : MonoBehaviour
     /// </summary>
     public void JudgmentJunles()
     {
-        for (int i = 0; i < Live_Data.JuneEffective.Count; i++)
+        for (int i = 0; i < SaveData.Instance.junle_Effective.Count; i++)
         {
-            if (Live_Data.JuneEffective[i].OnorOff == true)
+            if (SaveData.Instance.junle_Effective[i].OnorOff == true)
             {
+                //経験値を与える
                 EachSlider[i].GiveExP(ViwerResult._nowViewerCount);
+
                 //レベルテキストを更新
                 JunleLvText[i].text = "Lv" + EachSlider[i].currentLevel.ToString();
 
                 //各ジャンルの現在のレベルに合わせた増加値を再設定してあげる。
-                Live_Data.JuneEffective[i].BaseIncrease = LiveJunleIncrement[EachSlider[i].currentLevel - 1];
+                SaveData.Instance.junle_Effective[i].BaseIncrease = LiveJunleIncrement[EachSlider[i].currentLevel - 1];
 
             }
         }

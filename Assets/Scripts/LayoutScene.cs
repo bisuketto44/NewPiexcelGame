@@ -12,36 +12,49 @@ public class LayoutScene : MonoBehaviour
     [SerializeField]
     private Rotation_LayoutItems rotationLayoutItems;
 
-    AnimationUI _animationUI;
+    [SerializeField]
+    GameObject Door;
 
     GameObject Object_A;
 
     //終了ボタンの処理
     public void ToMain()
     {
-        //メイン画面を表示
+        //=================================================================================
+        //メイン画面の表示
+        //=================================================================================
         Object_A = GameObject.FindWithTag("A");
         Object_A.transform.GetChild(0).gameObject.SetActive(true);
 
-        //プレイヤーキャラを新たに作成する一連のメソッドを起動
-        _animationUI = GameObject.FindWithTag("Door").GetComponent<AnimationUI>();
-        _animationUI.DoorAnimation();
+        //=================================================================================
+        //プレイヤー生成のアニメーションを再生
+        //=================================================================================
+        var main = GameObject.FindWithTag("MainSceneManager");
+        var Door2 = Instantiate(Door, Door.transform.position, Quaternion.identity, main.transform);
+        Door2.GetComponent<AnimationUI>().DoorAnimation();
 
-        //すでに作成してあるプレイヤーオブジェクトを破棄
+        //=================================================================================
+        //すでに生成してあるキャラクターを破棄
+        //=================================================================================
         var player = GameObject.FindWithTag("PlayerObject");
         Destroy(player);
 
+
+        //=================================================================================
+        // 決定、しまうボタンを初期化、回転ボタンを初期化
+        //=================================================================================
         GameObject ThisGG = GameObject.FindWithTag("Now_Choose_LayoutItems");
         var Btn2 = GameObject.FindWithTag("Layout_Btn2");
-
-        //決定、しまうボタンを初期化
         Btn2.transform.GetChild(0).gameObject.SetActive(false);
-        //回転ボタンを初期化
         rotationLayoutItems.back();
-
-        //戻るときに選択していたオブジェクトを破壊
+    
+        //=================================================================================
+        // 戻るときに選択していたオブジェクトを破棄
+        //=================================================================================
         Destroy(ThisGG);
         this.gameObject.SetActive(false);
+
+
     }
 
 

@@ -12,6 +12,9 @@ public class Layout_BtnPro_BOXCS : MonoBehaviour
     [SerializeField]
     Rotation_LayoutItems rotationLayoutItems;
 
+    [SerializeField]
+    Layout_Items_StoreBOX layout_Items_StoreBOX;
+
     //決定ボタンを押したときの処理
     public void InstansiateItems(int temp)
     {
@@ -23,14 +26,28 @@ public class Layout_BtnPro_BOXCS : MonoBehaviour
 
         var parent = _ddItems.transform;
 
-        var i = Instantiate(whatitems.StoreBoxIns[temp], ThisGG.gameObject.transform.position, Quaternion.identity, parent);
+        var i = Instantiate(SaveData.Instance.StoreBoxIns[temp], ThisGG.gameObject.transform.position, Quaternion.identity, parent);
         whatitems.isStoreBox[temp] = i;
-        whatitems.whatBtn[temp] = true;
+        SaveData.Instance.whatBtn[temp] = true;
 
         //回転ボタンを非表示
         rotationLayoutItems.back();
         Destroy(ThisGG);
         Btn2.transform.GetChild(0).gameObject.SetActive(false);
+
+        //=================================================================================
+        // 配置したアイテムの場所を記憶。xとyのVector2を記憶してセーブデータ読み込み時に復元する
+        //=================================================================================
+        for (int s = 0; s < layout_Items_StoreBOX.isStoreBox.Length; s++)
+        {
+            if (SaveData.Instance.whatBtn[s] == true)
+            {
+                SaveData.Instance.X[s] = layout_Items_StoreBOX.isStoreBox[s].transform.localPosition.x;
+                SaveData.Instance.Y[s] = layout_Items_StoreBOX.isStoreBox[s].transform.localPosition.y;
+
+            }
+
+        }
     }
 
     //レイアウトアイテムを選んだ時の処理
@@ -139,16 +156,16 @@ public class Layout_BtnPro_BOXCS : MonoBehaviour
 
         //既に選択してあったオブジェクトを解除処理して、別のオブジェクトを選択する処理
         //true = 既に別のオブジェクトを選択している状態
-        if (whatitems.whatBtn[temp] == true)
+        if (SaveData.Instance.whatBtn[temp] == true)
         {
             //リセット
             Destroy(ThisGG);
 
             //実体をObjを消して、ChooseObjをその位置に再生成
-            Instantiate(whatitems.StoreBox[temp], whatitems.isStoreBox[temp].transform.position, Quaternion.identity);
+            Instantiate(SaveData.Instance.StoreBox[temp], whatitems.isStoreBox[temp].transform.position, Quaternion.identity);
             Destroy(whatitems.isStoreBox[temp]);
             whatitems.isStoreBox[temp] = null;
-            whatitems.whatBtn[temp] = false;
+            SaveData.Instance.whatBtn[temp] = false;
 
         }
         //何もない状態でオブジェクトを選択した場合の処理
@@ -157,7 +174,7 @@ public class Layout_BtnPro_BOXCS : MonoBehaviour
             //選択したオブジェクトを初期位置にスポーン
             Vector2 pos = new Vector2(5, -2);
             Destroy(ThisGG);
-            Instantiate(whatitems.StoreBox[temp], pos, Quaternion.identity);
+            Instantiate(SaveData.Instance.StoreBox[temp], pos, Quaternion.identity);
 
         }
         //回転ボタンの表示

@@ -18,6 +18,11 @@ public class Layout_InsItems : MonoBehaviour
     void Awake()
     {
         rotatin = GameObject.FindWithTag("rotation");
+        if (rotatin == null)
+        {
+            Debug.Log("獲得できてないよ");
+        }
+
 
     }
 
@@ -39,19 +44,19 @@ public class Layout_InsItems : MonoBehaviour
                 Btn2.transform.GetChild(0).gameObject.SetActive(true);
 
                 //選択オブジェクトへ置換
-                Instantiate(whatitems.StoreBox[tempindex], whatitems.isStoreBox[tempindex].transform.position, Quaternion.identity);
+                Instantiate(SaveData.Instance.StoreBox[tempindex], whatitems.isStoreBox[tempindex].transform.position, Quaternion.identity);
 
                 whatitems.isStoreBox[tempindex] = null;
-                whatitems.whatBtn[tempindex] = false;
+                SaveData.Instance.whatBtn[tempindex] = false;
 
                 //回転用の処理
                 if (tempindex == 3 || tempindex == 10 || tempindex == 13 || tempindex == 14 || tempindex == 18 || tempindex == 20)
                 {
 
-                    rotatin.SetActive(true);
+                    rotatin.transform.GetChild(0).gameObject.SetActive(true);
                     //ローテーションに情報を渡す
-                    rotatin.GetComponent<Rotation_LayoutItems>().whatItems = tempindex;
-                    rotatin.GetComponent<Rotation_LayoutItems>().RotationBtnAcativate(tempindex);
+                    rotatin.transform.GetChild(0).gameObject.GetComponent<Rotation_LayoutItems>().whatItems = tempindex;
+                    rotatin.transform.GetChild(0).gameObject.GetComponent<Rotation_LayoutItems>().RotationBtnAcativate(tempindex);
 
                 }
 

@@ -5,21 +5,14 @@ using UnityEngine.UI;
 
 public class Channel_Infomation_Update : MonoBehaviour
 {
-    //チャンネル登録者数を保存する変数
-    int subscurivers = 0;
 
     [Tooltip("チャンネル登録者数を表示するテキスト")]
     [SerializeField]
     Text ChannnelSubscribersText;
 
-    //最高同時接続数を保存するint
-    int MaxViewerEver = 0;
-
     [Tooltip("今までの最高同時接続数を表示するテキスト")]
     [SerializeField]
     Text MaxViewerEverText;
-
-    int MoneyEverEarnd;
 
     [Tooltip("今までの累計額を表示するテキスト")]
     [SerializeField]
@@ -37,8 +30,6 @@ public class Channel_Infomation_Update : MonoBehaviour
     [SerializeField]
     Text ChangeChannelNameText;
 
-    public string ChannelNameString;
-
     //各色の個数
     [SerializeField]
     Text BuleAmountText;
@@ -48,11 +39,6 @@ public class Channel_Infomation_Update : MonoBehaviour
     Text OrangeAmountText;
     [SerializeField]
     Text RedAmountText;
-
-    int BuleAmountint;
-    int YellowAmountint;
-    int OrangeAmountint;
-    int RedAmountint;
 
     //各色の累計額
     [SerializeField]
@@ -64,11 +50,6 @@ public class Channel_Infomation_Update : MonoBehaviour
     [SerializeField]
     Text RedMoneyText;
 
-    int BuleMoneyint;
-    int YellowMoneyInt;
-    int OrangeMoneyInt;
-    int RedMoneyInt;
-
     [Tooltip("コラボキャラを増やすメソッドを呼ぶ")]
     [SerializeField]
     private CollaboChar_Info_Database collaboCharInfoDatabase;
@@ -76,31 +57,50 @@ public class Channel_Infomation_Update : MonoBehaviour
     void Awake()
     {
         //String型にチャンネル名を保存
-        ChannelNameString = ChannelNameText.text;
+        ChannelNameText.text = SaveData.Instance.ChannelNameString;
+        SaveData.Instance.ChannelNameString = ChannelNameText.text;
+
+        //=================================================================================
+        //データロード時にチャンネル情報を復元
+        //=================================================================================
+        MaxViewerEverText.text = SaveData.Instance.MaxViewerEver.ToString("N0") + "人";
+        ChannnelSubscribersText.text = SaveData.Instance.subscrivers.ToString("N0") + "人";
+        MaxViewerEverText.text = SaveData.Instance.MaxViewerEver.ToString("N0") + "人";
+        MoneyEverEarndText.text = SaveData.Instance.MoneyEverEarnd.ToString("N0");
+
+        BuleAmountText.text = "青チャット : " + SaveData.Instance.buleamount.ToString("N0") + "個";
+        YellowAmountText.text = "黄チャット : " + SaveData.Instance.yellowamount.ToString("N0") + "個";
+        OrangeAmountText.text = "橙チャット : " + SaveData.Instance.orangeamount.ToString("N0") + "個";
+        RedAmountText.text = "赤チャット : " + SaveData.Instance.redamount.ToString("N0") + "個";
+
+        BuleMoneyText.text = SaveData.Instance.bulemoney.ToString("N0");
+        YellowMoneyText.text = SaveData.Instance.yellowmoney.ToString("N0");
+        OrangeMoneyText.text = SaveData.Instance.orangemoney.ToString("N0");
+        RedMoneyText.text = SaveData.Instance.redmoney.ToString("N0");
     }
 
     //チャンネルの基本情報を更新するメソッド
     public void UpdateChannelMainInfomations(int Viewer, int MaxViewer, int MoneyEver)
     {
-        var RandPercentage = Random.Range(20, 35);
+        var RandPercentage = Random.Range(40, 70);
         var num = (Viewer * ((float)RandPercentage / 100));
         Mathf.Round(num);
         //チャンネル登録者数に最終視聴者数の20~35%をランダムで追加
-        subscurivers += (int)num;
+        SaveData.Instance.subscrivers += (int)num;
 
         //現在の登録者数をコラボキャラの増加メソッドへ投げる
-        collaboCharInfoDatabase.ActivateCollabocharcter(subscurivers);
+        collaboCharInfoDatabase.ActivateCollabocharcter(SaveData.Instance.subscrivers);
 
         //最大視聴者数を更新
-        MaxViewerEver = MaxViewer;
+        SaveData.Instance.MaxViewerEver = MaxViewer;
 
         //配信で稼いだ額を配信累計額に追加
-        MoneyEverEarnd += MoneyEver;
+        SaveData.Instance.MoneyEverEarnd += MoneyEver;
 
         //テキストを更新
-        ChannnelSubscribersText.text = subscurivers.ToString("N0") + "人";
-        MaxViewerEverText.text = MaxViewer.ToString("N0") + "人";
-        MoneyEverEarndText.text = MoneyEverEarnd.ToString("N0");
+        ChannnelSubscribersText.text = SaveData.Instance.subscrivers.ToString("N0") + "人";
+        MaxViewerEverText.text = SaveData.Instance.MaxViewerEver.ToString("N0") + "人";
+        MoneyEverEarndText.text = SaveData.Instance.MoneyEverEarnd.ToString("N0");
 
     }
 
@@ -108,16 +108,16 @@ public class Channel_Infomation_Update : MonoBehaviour
     public void UpdateHiperChatAmounts(int bule, int yellow, int orange, int red)
     {
         //合計個数を追加
-        BuleAmountint += bule;
-        YellowAmountint += yellow;
-        OrangeAmountint += orange;
-        RedAmountint += red;
+        SaveData.Instance.buleamount += bule;
+        SaveData.Instance.yellowamount += yellow;
+        SaveData.Instance.orangeamount += orange;
+        SaveData.Instance.redamount += red;
 
         //テキスト更新
-        BuleAmountText.text = "青チャット : " + BuleAmountint.ToString("N0") + "個";
-        YellowAmountText.text = "黄チャット : " + YellowAmountint.ToString("N0") + "個";
-        OrangeAmountText.text = "橙チャット : " + OrangeAmountint.ToString("N0") + "個";
-        RedAmountText.text = "赤チャット : " + RedAmountint.ToString("N0") + "個";
+        BuleAmountText.text = "青チャット : " + SaveData.Instance.buleamount.ToString("N0") + "個";
+        YellowAmountText.text = "黄チャット : " + SaveData.Instance.yellowamount.ToString("N0") + "個";
+        OrangeAmountText.text = "橙チャット : " + SaveData.Instance.orangeamount.ToString("N0") + "個";
+        RedAmountText.text = "赤チャット : " + SaveData.Instance.redamount.ToString("N0") + "個";
 
     }
 
@@ -125,15 +125,15 @@ public class Channel_Infomation_Update : MonoBehaviour
     public void UpdateHiperChatMoneys(int bule, int yellow, int orange, int red)
     {
         //合計額を追加
-        BuleMoneyint += bule;
-        YellowMoneyInt += yellow;
-        OrangeMoneyInt += orange;
-        RedMoneyInt += red;
+        SaveData.Instance.bulemoney += bule;
+        SaveData.Instance.yellowmoney += yellow;
+        SaveData.Instance.orangemoney += orange;
+        SaveData.Instance.redmoney += red;
 
-        BuleMoneyText.text = BuleMoneyint.ToString("N0");
-        YellowMoneyText.text = YellowMoneyInt.ToString("N0");
-        OrangeMoneyText.text = OrangeMoneyInt.ToString("N0");
-        RedMoneyText.text = RedMoneyInt.ToString("N0");
+        BuleMoneyText.text = SaveData.Instance.bulemoney.ToString("N0");
+        YellowMoneyText.text = SaveData.Instance.yellowmoney.ToString("N0");
+        OrangeMoneyText.text = SaveData.Instance.orangemoney.ToString("N0");
+        RedMoneyText.text = SaveData.Instance.redmoney.ToString("N0");
 
     }
 
@@ -148,7 +148,7 @@ public class Channel_Infomation_Update : MonoBehaviour
     {
         //変更した名前を適用
         ChannelNameText.text = ChangeChannelNameText.text;
-        ChannelNameString = ChannelNameText.text;
+        SaveData.Instance.ChannelNameString = ChannelNameText.text;
         ChannelNameChangeWindow.SetActive(false);
     }
 

@@ -48,10 +48,10 @@ public class AcaiveChats : MonoBehaviour
         var SortList = GameObject.FindWithTag("Live_Acaive_Store").GetComponent<Live_Acaive_Store_List>();
 
         //値段を表示
-        ValueText.text = SortList.AcaiveLiveList[whatchats][count].value.ToString("N0");
+        ValueText.text = SaveData.Instance.AcaiveLiveList[whatchats].HiperChatList[count].value.ToString("N0");
 
         //値段に合わせて色を変更
-        switch (SortList.AcaiveLiveList[whatchats][count].number)
+        switch (SaveData.Instance.AcaiveLiveList[whatchats].HiperChatList[count].number)
         {
             case 0:
                 ObjectImage.color = new Color32(161, 207, 245, 255);
@@ -93,11 +93,11 @@ public class AcaiveChats : MonoBehaviour
         var SortList = GameObject.FindWithTag("Live_Acaive_Store").GetComponent<Live_Acaive_Store_List>();
 
         //格納されたcount変数を使ってリスト内のチャットの値段と、保存したコメント内容を読んでくる
-        MoneyText.text = SortList.AcaiveLiveList[Whatcahts][ChatNumber].value.ToString("N0");
-        ChatContentText.text =  SortList.AcaiveLiveList[Whatcahts][ChatNumber].ChatContent;
+        MoneyText.text = SaveData.Instance.AcaiveLiveList[Whatcahts].HiperChatList[ChatNumber].value.ToString("N0");
+        ChatContentText.text = SaveData.Instance.AcaiveLiveList[Whatcahts].HiperChatList[ChatNumber].ChatContent;
 
         //スパチャの色に合わせてカラーを決定
-        switch ( SortList.AcaiveLiveList[Whatcahts][ChatNumber].number)
+        switch (SaveData.Instance.AcaiveLiveList[Whatcahts].HiperChatList[ChatNumber].number)
         {
             case 0:
                 break;
@@ -116,7 +116,7 @@ public class AcaiveChats : MonoBehaviour
         }
 
         //ユーザーアイコンのカラーを決定
-        switch ( SortList.AcaiveLiveList[Whatcahts][ChatNumber].No)
+        switch (SaveData.Instance.AcaiveLiveList[Whatcahts].HiperChatList[ChatNumber].No)
         {
             case 0:
                 UserIconImage.color = new Color32(0, 203, 255, 150);//bule

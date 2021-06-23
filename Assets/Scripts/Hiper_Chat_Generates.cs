@@ -9,17 +9,13 @@ public class Hiper_Chat_Generates : MonoBehaviour
     [SerializeField]
     private GameObject HiperChatObjects;
 
-    [Tooltip("自動スクロール実行の有無を決定するトグル")]
-    [SerializeField]
-    private Toggle HiperChatToggle;
-
-    [Tooltip("自動スクロールのためのスクロールバー")]
-    [SerializeField]
-    private Scrollbar HiperChatScrollbar;
-
     [Tooltip("ハイパーチャットのコメントデータベース")]
     [SerializeField]
     Coment_HiperChat_DataBaseContoroller HiperChatDataBaseContoroller;
+
+    [Tooltip("ハイパーチャット図鑑のフラグ管理をする")]
+    [SerializeField]
+    CollaboPictureBookUpdate collaboPictureBookUpdate;
 
     //セットする親の、金額順ソート用のリスト、何個目に生成されたかを数えるint変数
     private Transform SetParent;
@@ -44,18 +40,38 @@ public class Hiper_Chat_Generates : MonoBehaviour
                 HiperChatListGenerate(WhichColor, Value, ListCount, "");
                 break;
             case 1:
-                var num1 = Random.Range(0, HiperChatDataBaseContoroller.YellowChatComents.Count);
-                Chatstring = HiperChatDataBaseContoroller.YellowChatComents[num1].YellowChatContents;
+                var num1 = Random.Range(0, SaveData.Instance.YellowChatComents.Count);
+                Chatstring = SaveData.Instance.YellowChatComents[num1].YellowChatContents;
+
+                //フラグを立てる
+                if (SaveData.Instance.YellowChatComents[num1].GetOrNot == false)
+                {
+                    collaboPictureBookUpdate.GetFlagChats(1, num1);
+                }
+
                 HiperChatListGenerate(WhichColor, Value, ListCount, Chatstring);
                 break;
             case 2:
-                var num2 = Random.Range(0, HiperChatDataBaseContoroller.OrangeChatComents.Count);
-                Chatstring = HiperChatDataBaseContoroller.OrangeChatComents[num2].OrangeChatContents;
+                var num2 = Random.Range(0, SaveData.Instance.OrangeChatComents.Count);
+                Chatstring = SaveData.Instance.OrangeChatComents[num2].OrangeChatContents;
+
+                if (SaveData.Instance.OrangeChatComents[num2].GetOrNot == false)
+                {
+                    collaboPictureBookUpdate.GetFlagChats(2, num2);
+                }
+
                 HiperChatListGenerate(WhichColor, Value, ListCount, Chatstring);
                 break;
             case 3:
-                var num3 = Random.Range(0, HiperChatDataBaseContoroller.RedChatComents.Count);
-                Chatstring = HiperChatDataBaseContoroller.RedChatComents[num3].RedChatContents;
+                var num3 = Random.Range(0, SaveData.Instance.RedChatComents.Count);
+                Chatstring = SaveData.Instance.RedChatComents[num3].RedChatContents;
+
+                if (SaveData.Instance.RedChatComents[num3].GetOrNot == false)
+                {
+                    collaboPictureBookUpdate.GetFlagChats(3, num3);
+                }
+
+                SaveData.Instance.RedChatComents[num3].GetOrNot = true;
                 HiperChatListGenerate(WhichColor, Value, ListCount, Chatstring);
                 break;
         }

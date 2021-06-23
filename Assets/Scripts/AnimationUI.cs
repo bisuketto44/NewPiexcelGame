@@ -11,6 +11,12 @@ public class AnimationUI : MonoBehaviour
     [SerializeField]
     GameObject LiveNowWindow;
 
+    [SerializeField]
+    GameObject PictureBooks;
+
+    [SerializeField]
+    GameObject PictureBook;
+
     //現在ライブビューのMask
     [SerializeField]
     GameObject LiveNowMask;
@@ -48,6 +54,28 @@ public class AnimationUI : MonoBehaviour
 
     }
 
+    public void PictureBookAnimationActivate_Inactivate()
+    {
+        var animation = PictureBooks.GetComponent<Animator>();
+        animation.SetTrigger("CLCTTrigger");
+
+        if (_liveWindowbool == false)
+        {
+            LiveNowMask.gameObject.SetActive(true);
+
+            _liveWindowbool = true;
+            return;
+        }
+        else
+        {
+            LiveNowMask.gameObject.SetActive(false);
+
+            _liveWindowbool = false;
+            return;
+        }
+
+    }
+
     //現在ライブのセットアクティブを起動する(AnimationEventで使用する)
     public void ActivateWindow()
     {
@@ -59,6 +87,19 @@ public class AnimationUI : MonoBehaviour
     public void InActivateWindow()
     {
         LiveNowWindow.gameObject.SetActive(false);
+
+    }
+    
+    //上記と同じくハイパーチャット図鑑のアニメーションイベントで呼ぶ
+    public void ActivateBook()
+    {
+        PictureBook.SetActive(true);
+
+    }
+
+    public void InactivateBook()
+    {
+        PictureBook.SetActive(false);
 
     }
 

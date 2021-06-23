@@ -31,6 +31,10 @@ public class Item_Purchase : MonoBehaviour
     [SerializeField]
     private Shop_Conditions ShopCondition;
 
+    [Tooltip("ViewerCountのスクリプト")]
+    [SerializeField]
+    Viewer_Count viewer_Count;
+
     [Tooltip("スタイルキットを何個所持しているかを表示するテキスト")]
     [SerializeField]
     private Text StyleKitCountText;
@@ -51,17 +55,130 @@ public class Item_Purchase : MonoBehaviour
     [SerializeField]
     ItemEffective_VisulalUpdate itemEffective_VisulalUpdate;
 
-    private int StyleKitCountInt = 0;
+    [Tooltip("やる気の回復と消費に関するスクリプト")]
+    [SerializeField]
+    Motivation_Contoroller motivation_Contoroller;
 
     public bool boolPC1 = false;
     public bool boolPC2 = false;
 
+    //ゲームロード時の処理
+    void Start()
+    {
+        //初回ロード時はなし
+        if (SaveData.Instance.PreviousDataIsAvailableOrNot == false)
+        {
+            return;
+        }
+        SaveData.Instance.Reload();
 
-    public void PurchaseItems(int temp, int quantity)
+        var MainSceneManager = GameObject.FindWithTag("MainSceneManager").GetComponent<MainScene>();
+
+        //どのアイテムを購入したかをロード時に確認
+        for (int i = 0; i < SaveData.Instance.Item_Effectives.Count; i++)
+        {
+            if (SaveData.Instance.Item_Effectives[i].OnOrOff == true)
+            {
+                //=================================================================================
+                //インベントリ内のアイテムをアクティブ化
+                //=================================================================================
+                _isItems[i].gameObject.SetActive(true);
+
+                //=================================================================================
+                // //LayoutSceneにどのアイテム(配列の何番目)を買ったかをpassするためにフラグを管理(MainScene.csで使用)
+                //=================================================================================
+                if (i < 19)
+                {
+                    MainSceneManager.JudgeArray[i] = true;
+                }
+
+                //=================================================================================
+                // スタイルキットの所持数を計算、反映 / 購入数に応じてスタイルポイントの獲得を反映
+                //=================================================================================
+                if (i == 21)
+                {
+                    StyleKitCountText.text = "×" + SaveData.Instance.StyleKitCountInt.ToString();
+                }
+
+                //=================================================================================
+                // PCのアップグレードを反映
+                //=================================================================================
+                if (i == 19)
+                {
+                    ActivatePC1();
+                }
+                if (i == 20)
+                {
+                    ActivatePC2();
+                }
+
+                //=================================================================================
+                // 各アイテムのショップ残量を計算、反映
+                //=================================================================================
+                if (i == 21)
+                {
+                    ShopCondition.InActivateShopBtns(i, SaveData.Instance.StyleKitCountInt);
+                    //すでに値は追加してあるので、反映のためにメソッドだけ起動
+                    StyleStatusManager.StylePointApply(SaveData.Instance.StyleKitCountInt);
+                }
+                else
+                {
+                    ShopCondition.InActivateShopBtns(i, 1);
+                }
+
+                //=================================================================================
+                // ViewerCountCsに各アイテムの強化値を反映
+                //=================================================================================
+
+                if (SaveData.Instance.Item_Effectives[i].effectiveName == "やる気回復速度" || SaveData.Instance.Item_Effectives[i].effectiveName == "全効果")
+                {
+                    motivation_Contoroller.CaluculationRecoverTime(SaveData.Instance.Item_Effectives[i].MultiplierEffective);
+                }
+
+                if (SaveData.Instance.Item_Effectives[i].effectiveName == "視聴継続率UP" || SaveData.Instance.Item_Effectives[i].effectiveName == "全効果")
+                {
+                    viewer_Count.RetentionRatevalue += SaveData.Instance.Item_Effectives[i].MultiplierEffective;
+                }
+
+                if (SaveData.Instance.Item_Effectives[i].effectiveName == "レアチャット獲得確立UP" || SaveData.Instance.Item_Effectives[i].effectiveName == "全効果")
+                {
+                    viewer_Count.RareChatGetUp += SaveData.Instance.Item_Effectives[i].MultiplierEffective;
+
+                }
+
+            }
+
+
+        }
+
+        //=================================================================================
+        //　アイテム強化状況のテキストを更新
+        //=================================================================================
+        itemEffective_VisulalUpdate.UpdateRatioTexts();
+
+        //=================================================================================
+        //前回のデータからスキルポイントとそれに伴うメッシュを復元
+        //=================================================================================
+        for (int s = 0; s < SaveData.Instance.StyleSatus.Length; s++)
+        {
+            if (SaveData.Instance.StyleSatus[s] == 0)
+            {
+                continue;
+            }
+            for (int z = 0; z < SaveData.Instance.StyleSatus[s]; z++)
+            {
+                StyleStatusManager.StyleEnhanceBtn(s);
+            }
+        }
+
+    }
+
+
+    public void PurchaseItems(int i, int quantity)
     {
         //必要な値段を計算し、その値段分の所持金があれば通す。
         //所持金がなければretrunして、警告ウィンドウを表示する。
-        if (moneycontoroller.PossesedMoney < (itemdatabase.items[temp].cost * quantity))
+        if (moneycontoroller.PossesedMoney < (itemdatabase.items[i].cost * quantity))
         {
             CantPuerChasePannelObje.SetActive(true);
             return;
@@ -69,7 +186,7 @@ public class Item_Purchase : MonoBehaviour
         else
         {
             //費用を所持金から引く
-            var costAmount = (itemdatabase.items[temp].cost * quantity);
+            var costAmount = (itemdatabase.items[i].cost * quantity);
             moneycontoroller.SpendMoney(costAmount);
 
         }
@@ -99,53 +216,71 @@ public class Item_Purchase : MonoBehaviour
         }
 
         //アイテムBOX内のアイテムをactive化(ここでアイテムインベントリ内のアイテムを管理)
-        _isItems[temp].gameObject.SetActive(true);
+        _isItems[i].gameObject.SetActive(true);
 
         //配列が19じゃないかつ20じゃない = 19か20か21以外なら以下を実行
-        if (temp != 19 && temp != 20 && temp != 21)
+        if (i != 19 && i != 20 && i != 21)
         {
             //LayoutSceneにどのアイテム(配列の何番目)を買ったかをpassするためにフラグを管理(MainScene.csで使用)
-            MainSceneManager.JudgeArray[temp] = true;
+            MainSceneManager.JudgeArray[i] = true;
         }
 
         //使用したイベントリスナーは削除しておかないとスタックするので削除(成功時でも)
         shop_diceide_btn.onClick.RemoveAllListeners();
 
-        //アイテム効果をONに(スタイル強化キット以外)
-        if (temp != 21)
-        {
-            LiveData.ItemsEffective[temp].OnOrOff = true;
-        }
+        //アイテム効果をON
+        SaveData.Instance.Item_Effectives[i].OnOrOff = true;
 
         //スタイルキットの個数テキストを更新
-        if (temp == 21 && quantity != 0)
+        if (i == 21 && quantity != 0)
         {
-            StyleKitCountInt += quantity;
-            StyleKitCountText.text = "×" + StyleKitCountInt.ToString();
+            SaveData.Instance.StyleKitCountInt += quantity;
+            StyleKitCountText.text = "×" + SaveData.Instance.StyleKitCountInt.ToString();
             StyleStatusManager.StylePointApply(quantity);
 
         }
 
         //PCアップデート
-        if (temp == 19)
+        if (i == 19)
         {
             ActivatePC1();
         }
-        if (temp == 20)
+        if (i == 20)
         {
             ActivatePC2();
         }
 
         //アイテムが売り切れかどうかを判定するメソッドに値を飛ばす
-        ShopCondition.InActivateShopBtns(temp, quantity);
+        ShopCondition.InActivateShopBtns(i, quantity);
+
+        if (i == 21)
+        {
+            return;
+        }
 
         //購入したアイテムの効果の累計価テキストを表示する
         itemEffective_VisulalUpdate.UpdateRatioTexts();
 
+        //やる気の回復速度上昇を適用する
+        if (SaveData.Instance.Item_Effectives[i].effectiveName == "やる気回復速度" || SaveData.Instance.Item_Effectives[i].effectiveName == "全効果")
+        {
+            motivation_Contoroller.CaluculationRecoverTime(SaveData.Instance.Item_Effectives[i].MultiplierEffective);
+        }
+
+        //視聴継続率の上昇を適用する
+        if (SaveData.Instance.Item_Effectives[i].effectiveName == "視聴継続率UP" || SaveData.Instance.Item_Effectives[i].effectiveName == "全効果")
+        {
+            viewer_Count.RetentionRatevalue += SaveData.Instance.Item_Effectives[i].MultiplierEffective;
+        }
+
+        if (SaveData.Instance.Item_Effectives[i].effectiveName == "レアチャット獲得確立UP" || SaveData.Instance.Item_Effectives[i].effectiveName == "全効果")
+        {
+            viewer_Count.RareChatGetUp += SaveData.Instance.Item_Effectives[i].MultiplierEffective;
+
+        }
+
 
     }
-
-
 
     private void ActivatePC1()
     {

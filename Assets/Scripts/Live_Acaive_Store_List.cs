@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Live_Acaive_Store_List : MonoBehaviour
 {
+    //作成したハイパーチャットのリスト
     [SerializeField]
     Hiper_Chat_Generates HipeChatGanereteCS;
 
@@ -12,21 +13,30 @@ public class Live_Acaive_Store_List : MonoBehaviour
     [SerializeField]
     GameObject[] AchivesSelectBtns;
 
-
-    int count = 0;
-    int count2 = 0;
-
-    //アーカイブを保存するための２次元リストを作成
-    public List<List<Base_HiperChat_Sort>> AcaiveLiveList;
-    //その他のアーカイブ情報を保存するリストを作成
-    public List<Base_Achives_Elements> AcaiveElementsList;
-
     void Awake()
     {
-        //2次元リストの初期化
-        AcaiveLiveList = new List<List<Base_HiperChat_Sort>>();
-        AcaiveElementsList = new List<Base_Achives_Elements>();
+        //リストをもつクラスを格納するためのリスト
+        SaveData.Instance.AcaiveLiveList = new List<ValueList>();
 
+        //=================================================================================
+        //セーブデータロード時にあるアーカイブ数だけボタンを表示
+        //=================================================================================
+
+        if (SaveData.Instance.AcaiveElementsList == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < SaveData.Instance.AcaiveElementsList.Count; i++)
+        {
+            //アーカイブ選択ボタンを表示
+            AchivesSelectBtns[i].SetActive(true);
+            Text sumple1 = AchivesSelectBtns[i].transform.GetChild(1).GetComponent<Text>();
+            Text sumple2 = AchivesSelectBtns[i].transform.GetChild(2).GetComponent<Text>();
+
+            sumple1.text = SaveData.Instance.AcaiveElementsList[i].Title;
+            sumple2.text = "最高視聴者数" + SaveData.Instance.AcaiveElementsList[i].MaxViewer.ToString("N0") + "人";
+        }
 
     }
 
@@ -35,26 +45,28 @@ public class Live_Acaive_Store_List : MonoBehaviour
     {
 
         //データの保存は10個まで
-        if (count == 10)
+        if (SaveData.Instance.count == 10)
         {
-            count = 9;
+            SaveData.Instance.count = 9;
             //一番古いデータを削除
-            AcaiveLiveList.RemoveAt(0);
+            SaveData.Instance.AcaiveLiveList.RemoveAt(0);
         }
 
-        //Listに格納する中身のListを作成
-        AcaiveLiveList.Add(new List<Base_HiperChat_Sort>());
-
-        //中身に追加
+        //リストを持つクラスを新たに生成し、その中身のリストにハイチャの履歴を格納
+        SaveData.Instance.AcaiveContents = new ValueList();
         for (int i = 0; i < HipeChatGanereteCS.SortList.Count; i++)
         {
-            AcaiveLiveList[count].Add(HipeChatGanereteCS.SortList[i]);
+            SaveData.Instance.AcaiveContents.HiperChatList.Add(HipeChatGanereteCS.SortList[i]);
         }
 
-        //アーカイブ選択ボタンを表示
-        AchivesSelectBtns[count].SetActive(true);
+        //履歴を格納したclassを格納
+        SaveData.Instance.AcaiveLiveList.Add(SaveData.Instance.AcaiveContents);
 
-        count++;
+
+        //アーカイブ選択ボタンを表示
+        AchivesSelectBtns[SaveData.Instance.count].SetActive(true);
+
+        SaveData.Instance.count++;
 
     }
 
@@ -62,26 +74,34 @@ public class Live_Acaive_Store_List : MonoBehaviour
     public void GenerateAchiveElementsList(string title, string junle, string style, int maxviewer, int hiperchatmoney, int hiperchatamount, int buleamount, int yellowamount, int orangeamount, int redamount, int bulemoney, int yellowmoney, int orangemoney, int redmoney)
     {
         //最大個数を10個に制限
-        if (count2 == 10)
+        if (SaveData.Instance.count2 == 10)
         {
-            count2 = 9;
-            AcaiveElementsList.RemoveAt(0);
+            SaveData.Instance.count2 = 9;
+            SaveData.Instance.AcaiveElementsList.RemoveAt(0);
         }
 
         //リストを作成
-        AcaiveElementsList.Add(new Base_Achives_Elements(title, junle, style, maxviewer, hiperchatmoney, hiperchatamount, buleamount, yellowamount, orangeamount, redamount, bulemoney, yellowmoney, orangemoney, redmoney));
+        SaveData.Instance.AcaiveElementsList.Add(new Base_Achives_Elements(title, junle, style, maxviewer, hiperchatmoney, hiperchatamount, buleamount, yellowamount, orangeamount, redamount, bulemoney, yellowmoney, orangemoney, redmoney));
         //リストのタイトルと視聴者数をボタンテキストに表示
-        for (int i = 0; i < AcaiveElementsList.Count; i++)
+        for (int i = 0; i < SaveData.Instance.AcaiveElementsList.Count; i++)
         {
             Text sumple1 = AchivesSelectBtns[i].transform.GetChild(1).GetComponent<Text>();
             Text sumple2 = AchivesSelectBtns[i].transform.GetChild(2).GetComponent<Text>();
 
-            sumple1.text = AcaiveElementsList[i].Title;
-            sumple2.text = "最高視聴者数" + AcaiveElementsList[i].MaxViewer.ToString("N0") + "人";
+            sumple1.text = SaveData.Instance.AcaiveElementsList[i].Title;
+            sumple2.text = "最高視聴者数" + SaveData.Instance.AcaiveElementsList[i].MaxViewer.ToString("N0") + "人";
 
         }
-        count2++;
+        SaveData.Instance.count2++;
 
 
     }
+}
+
+//クラスに別のクラスのインスタンスのリストをを持たせる
+[System.SerializableAttribute]
+public class ValueList
+{
+    public List<Base_HiperChat_Sort> HiperChatList = new List<Base_HiperChat_Sort>();
+
 }

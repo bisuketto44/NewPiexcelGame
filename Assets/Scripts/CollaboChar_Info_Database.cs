@@ -18,14 +18,12 @@ public class CollaboChar_Info_Database : MonoBehaviour
     [SerializeField]
     GameObject NewEarndPanel;
 
-    int currentCount = 2;
+
     int maxCount = 11;
-    int nowsucsriver = 0;
 
     void Awake()
     {
         CollaboCharinfo = new List<CollaboChar_Infomation>();
-
         CollaboCharinfo.Add(new CollaboChar_Infomation("ニック", 1, "しがない配信者。一攫千金を目指し奮闘中。", "★", 0));
         CollaboCharinfo.Add(new CollaboChar_Infomation("アメリア", 2, "駆け出し配信者。ゲーム実況が得意らしい。", "★", 0));
         CollaboCharinfo.Add(new CollaboChar_Infomation("親方", 3, "配信者を始める前は･･･。強面だが一部の視聴者からは密かに人気がある。", "★★", 5000));
@@ -38,23 +36,33 @@ public class CollaboChar_Info_Database : MonoBehaviour
         CollaboCharinfo.Add(new CollaboChar_Infomation("ウォーキングアンデット", 10, "アメリカドラマ出演経験あり。世界を股にかける配信者。", "★★★★★★", 300000));
         CollaboCharinfo.Add(new CollaboChar_Infomation("ビビデバビデ嬢", 11, "噂によると魔女の血を引くお嬢様。ド派手な配信で世界を席巻する。", "★★★★★★★", 500000));
         CollaboCharinfo.Add(new CollaboChar_Infomation("Mr.サンタクロース", 12, "世界中でプレゼント企画を行う大人気者。世界中で大人気の配信者。", "★★★★★★★★", 1000000));
+
+        //=================================================================================
+        //解放したコラボ相手を復元
+        //=================================================================================
+        for (int i = 0; i < SaveData.Instance.currentCount; i++)
+        {
+            CollaboCharcters[i].gameObject.SetActive(true);
+        }
     }
 
+    /// <summary>
+    /// 指定のチャンネル登録者数に到達するとコラボキャラを増加させるメソッド
+    /// </summary>
     public void ActivateCollabocharcter(int subscriver)
     {
-        if (currentCount == maxCount)
+        if (SaveData.Instance.currentCount == maxCount)
         {
             return;
         }
         //登録者
-        nowsucsriver = subscriver;
 
-        while (nowsucsriver >= CollaboCharinfo[currentCount].RequiredRegistrants)
+        while (subscriver >= CollaboCharinfo[SaveData.Instance.currentCount].RequiredRegistrants)
         {
-            CollaboCharcters[currentCount].gameObject.SetActive(true);
+            CollaboCharcters[SaveData.Instance.currentCount].gameObject.SetActive(true);
             NewEarndPanel.SetActive(true);
-            currentCount++;
-            if (currentCount == maxCount)
+            SaveData.Instance.currentCount++;
+            if (SaveData.Instance.currentCount == maxCount)
             {
                 return;
             }

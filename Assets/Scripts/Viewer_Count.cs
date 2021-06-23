@@ -165,8 +165,7 @@ public class Viewer_Count : MonoBehaviour
     [SerializeField]
     Text LineVieweCountText;
 
-    //前回の配信のデータがあるかどうかをチェックするbool
-    public bool Data_Previous_Live = false;
+    private bool Data_Previous_Live = false;
 
     [Tooltip("アーカイブ保存のため")]
     [SerializeField]
@@ -179,8 +178,6 @@ public class Viewer_Count : MonoBehaviour
     [SerializeField]
     GameObject NomalComentContents;
 
-    //今までの配信の中の最大視聴者数
-    int MaxViewer = 0;
     //各配信の最大視聴者数
     int MaxTempViewer = 0;
 
@@ -212,10 +209,15 @@ public class Viewer_Count : MonoBehaviour
     [Tooltip("自動で開くかを決めるトグル")]
     [SerializeField]
     private Toggle WindowToggle;
-    
+
     [Tooltip("マネーシステムを管理するスクリプト")]
     [SerializeField]
     MoneyContoroller moneyContoroller;
+
+    //視聴継続率
+    public float RetentionRatevalue = 0f;
+    //レアチャット獲得確率UP
+    public float RareChatGetUp = 0f;
 
 
     //選択したジャンルを保存する変数
@@ -240,16 +242,12 @@ public class Viewer_Count : MonoBehaviour
             //前回のデータが存在したら配信前に保存&リセット(見ずらいので別途メソッドを用意したほうが良いかも)
             if (Data_Previous_Live == true)
             {
-                //別の2次元Listに過去のデータを保存
-                LiveActiveSortList.GenerateAcaiveHipeChatList();
                 //ハイチャリストの初期化
                 HiperChatGenerates.SortList.Clear();
                 //ハイチャの最大数を初期化
                 infnityScrollLimitedCS.max = 0;
                 //ハイチャスクロールのビジュアルを初期化(更新)
                 infinity.AutoUpdata();
-                //その他のデータをリストに格納
-                LiveActiveSortList.GenerateAchiveElementsList(Title, ChooseJunleNmae, ChooseStyleName, MaxTempViewer, _sChatMoneyAmount, (int)_nowSuperChatCount, _bule, _yellow, _orange, _red, _buleAmount, _yellowAmount, _orangeAmount, _redAmount);
 
                 //経験値を与えた後に視聴者数も初期化
                 _nowViewerCount = 0;
@@ -301,7 +299,7 @@ public class Viewer_Count : MonoBehaviour
             if (MotivationInt != 0)
             {
                 MotivationText.text = "---------";
-                LiveDataInfo.MotivationEffectives[MotivationInt].OnOrOff = false;
+                SaveData.Instance.motivation_Effective[MotivationInt].OnOrOff = false;
                 _checkMotivation = false;
             }
 
@@ -310,7 +308,7 @@ public class Viewer_Count : MonoBehaviour
 
             //タイトル名を決定し、タイトルをstringに保存
             Title = livetitelcontoroller.DicideLiveTitle();
-            
+
             //トグルにチェックがついていたら自動で配信開始時にウィンドウを開く
             if (WindowToggle.isOn == true)
             {
@@ -349,10 +347,13 @@ public class Viewer_Count : MonoBehaviour
     //視聴者が増えるか減るか
     void DictsViewer()
     {
+        //確率の変動値を計算
+        float changeValue = (30f * (RetentionRatevalue)) / 2;
+
         //0なら増やす、1なら減らす
         probabilityViewer = new Dictionary<int, float>();
-        probabilityViewer.Add(0, 70.0f); // increase
-        probabilityViewer.Add(1, 30.0f); // decrease
+        probabilityViewer.Add(0, 70.0f + changeValue); // increase
+        probabilityViewer.Add(1, 30.0f - changeValue); // decrease
 
     }
 
@@ -400,54 +401,54 @@ public class Viewer_Count : MonoBehaviour
 
 
         //選択されたスタイル(Lv)の固定増加視聴者数を反映
-        for (int i = 0; i < LiveDataInfo.StyleEffective.Count; i++)
+        for (int i = 0; i < SaveData.Instance.Style_Effective.Count; i++)
         {
-            if (LiveDataInfo.StyleEffective[i].OnOrOff == true)
+            if (SaveData.Instance.Style_Effective[i].OnOrOff == true)
             {
-                Styleincrease = LiveDataInfo.StyleEffective[i].BaseIncrease;
+                Styleincrease = SaveData.Instance.Style_Effective[i].BaseIncrease;
                 //選択されたスタイルを保存
                 DecideStyle = i;
                 _checkStyle = true;
 
                 //選択肢したスタイルを保存
-                ChooseStyleName = LiveDataInfo.StyleEffective[i].StyleName;
+                ChooseStyleName = SaveData.Instance.Style_Effective[i].StyleName;
 
             }
 
         }
 
         //選択されたジャンル(Lv)の固定増加視聴者数を反映
-        for (int i = 0; i < LiveDataInfo.JuneEffective.Count; i++)
+        for (int i = 0; i < SaveData.Instance.junle_Effective.Count; i++)
         {
-            if (LiveDataInfo.JuneEffective[i].OnorOff == true)
+            if (SaveData.Instance.junle_Effective[i].OnorOff == true)
             {
-                JunleIncrease = LiveDataInfo.JuneEffective[i].BaseIncrease;
+                JunleIncrease = SaveData.Instance.junle_Effective[i].BaseIncrease;
                 //選択されたジャンルを保存
                 DecideJunle = i;
                 _checkJunle = true;
 
                 //選択したジャンルを保存
-                ChooseJunleNmae = LiveDataInfo.JuneEffective[i].JunleName;
+                ChooseJunleNmae = SaveData.Instance.junle_Effective[i].JunleName;
             }
         }
 
         //購入されているアイテムの隠し固定値増加を反映
-        for (int i = 0; i < LiveDataInfo.ItemsEffective.Count; i++)
+        for (int i = 0; i < SaveData.Instance.Item_Effectives.Count; i++)
         {
-            if (LiveDataInfo.ItemsEffective[i].OnOrOff == true)
+            if (SaveData.Instance.Item_Effectives[i].OnOrOff == true)
             {
-                ItemIncrease += LiveDataInfo.ItemsEffective[i].HiddenFixedValues;
+                ItemIncrease += SaveData.Instance.Item_Effectives[i].HiddenFixedValues;
             }
         }
 
         //やる気の倍率を反映
-        for (int i = 0; i < LiveDataInfo.MotivationEffectives.Count; i++)
+        for (int i = 0; i < SaveData.Instance.motivation_Effective.Count; i++)
         {
-            if (LiveDataInfo.MotivationEffectives[i].OnOrOff == true)
+            if (SaveData.Instance.motivation_Effective[i].OnOrOff == true)
             {
-                MotivationMultipule = LiveDataInfo.MotivationEffectives[i].Motivation_Percent;
+                MotivationMultipule = SaveData.Instance.motivation_Effective[i].Motivation_Percent;
                 //やる気消費量を決定
-                ConsMotivationvalue = LiveDataInfo.MotivationEffectives[i].ConsMotivation;
+                ConsMotivationvalue = SaveData.Instance.motivation_Effective[i].ConsMotivation;
                 _checkMotivation = true;
                 //選択したやる気がどれなのかを保存
                 MotivationInt = i;
@@ -455,15 +456,15 @@ public class Viewer_Count : MonoBehaviour
         }
 
         //アイテム倍率を反映
-        for (int i = 0; i < LiveDataInfo.ItemsEffective.Count; i++)
+        for (int i = 0; i < SaveData.Instance.Item_Effectives.Count; i++)
         {
-            if (LiveDataInfo.ItemsEffective[i].OnOrOff == true && LiveDataInfo.ItemsEffective[i].effectiveName == "視聴者数UP")
+            if (SaveData.Instance.Item_Effectives[i].OnOrOff == true && SaveData.Instance.Item_Effectives[i].effectiveName == "視聴者数UP")
             {
-                ItemMultipule += LiveDataInfo.ItemsEffective[i].MultiplierEffective;
+                ItemMultipule += SaveData.Instance.Item_Effectives[i].MultiplierEffective;
             }
-            if (LiveDataInfo.ItemsEffective[i].OnOrOff == true && LiveDataInfo.ItemsEffective[i].effectiveName == "全効果")
+            if (SaveData.Instance.Item_Effectives[i].OnOrOff == true && SaveData.Instance.Item_Effectives[i].effectiveName == "全効果")
             {
-                ItemMultipule += LiveDataInfo.ItemsEffective[i].MultiplierEffective;
+                ItemMultipule += SaveData.Instance.Item_Effectives[i].MultiplierEffective;
             }
         }
 
@@ -475,11 +476,11 @@ public class Viewer_Count : MonoBehaviour
         //5 = コラボ配信なら
         else
         {
-            for (int i = 0; i < LiveDataInfo.CollaboChaeEffcrive.Count; i++)
+            for (int i = 0; i < SaveData.Instance.CollaboChar_Effective.Count; i++)
             {
-                if (LiveDataInfo.CollaboChaeEffcrive[i].OnOrOff == true)
+                if (SaveData.Instance.CollaboChar_Effective[i].OnOrOff == true)
                 {
-                    ConboMultipule = LiveDataInfo.CollaboChaeEffcrive[i].CollaboChareMuptipure;
+                    ConboMultipule = SaveData.Instance.CollaboChar_Effective[i].CollaboChareMuptipure;
                 }
             }
 
@@ -493,32 +494,22 @@ public class Viewer_Count : MonoBehaviour
         Debug.Log("ベース視聴者");
         Debug.Log(_baseViewerAfter);
 
-        Debug.Log("アイテム倍率");
-        Debug.Log(ItemMultipule);
-
-        Debug.Log("アイテムの固定値");
-        Debug.Log(ItemIncrease);
-
-        Debug.Log("スタイル*ジャンルの倍率 / コラボ倍率");
-        Debug.Log(ConboMultipule);
-
         return (int)_baseViewerAfter;
     }
 
     //配信時間を決定
     private void DicideLiveTime()
     {
-        for (int i = 0; i < LiveDataInfo.LiveTimeEffective.Count; i++)
+        for (int i = 0; i < SaveData.Instance.LiveTime.Count; i++)
         {
-            if (LiveDataInfo.LiveTimeEffective[i].OnOrOff == true)
+            if (SaveData.Instance.LiveTime[i].OnOrOff == true)
             {
-                LiveTimeCheck = LiveDataInfo.LiveTimeEffective[i].Livetime;
+                LiveTimeCheck = SaveData.Instance.LiveTime[i].Livetime;
                 _checkTime = true;
             }
 
         }
-        Debug.Log("配信時間");
-        Debug.Log(_check);
+
     }
 
     //同時視聴者数の変動を操作するメソッド
@@ -556,24 +547,13 @@ public class Viewer_Count : MonoBehaviour
         {
             var position = Mathf.InverseLerp(0, _maxViewer, _nowViewerCount);
             //人数が増えれば増えるほど１回で貰えるスパチャ数が増加する
-            var _postion2 = Mathf.Lerp(1, 120, position);
+            var _postion2 = Mathf.Lerp(2, 60, position);
             //最大1*100倍の100個が1ティックで取得できる
             var final = 1 * (Mathf.Floor(_postion2));
             var final2 = (int)final;
 
             //スパチャの個数をランダム化
-            if (final2 >= 1 && final2 <= 5)
-            {
-                final2 = Random.Range(final2 - 1, final2 + 2);
-            }
-            else if (final2 >= 6 && final2 <= 12)
-            {
-                final2 = Random.Range(final2 - 2, final2 + 3);
-            }
-            else if (final2 >= 13 && final2 <= 25)
-            {
-                final2 = Random.Range(final2 - 3, final2 + 4);
-            }
+            final2 = Random.Range(final2, (final2 * 2));
 
             //スパチャの個数を選定
             _nowSuperChatCount += final2;
@@ -605,9 +585,7 @@ public class Viewer_Count : MonoBehaviour
 
         var final = 1 * _postion2;
 
-
         _baseNowSuperChatSecond = final;
-
 
     }
 
@@ -615,11 +593,15 @@ public class Viewer_Count : MonoBehaviour
     //スパチャの額がどれになるか
     void DictsSuperChat()
     {
+        var changeValueYellow = (3.0f * RareChatGetUp);
+        var changeValueOrange = (1.6f * RareChatGetUp);
+        var changeValueRed = (0.4f * RareChatGetUp);
+
         probabilitySChat = new Dictionary<int, float>();
-        probabilitySChat.Add(0, 95.0f);
-        probabilitySChat.Add(1, 3.0f);
-        probabilitySChat.Add(2, 1.5f);
-        probabilitySChat.Add(3, 0.5f);
+        probabilitySChat.Add(0, 95.0f - changeValueYellow - changeValueOrange - changeValueRed);
+        probabilitySChat.Add(1, 3.0f + changeValueYellow);
+        probabilitySChat.Add(2, 1.6f + changeValueOrange);
+        probabilitySChat.Add(3, 0.4f + changeValueRed);
 
     }
 
@@ -742,9 +724,9 @@ public class Viewer_Count : MonoBehaviour
             MainDisPlayViewerText.text = _nowViewerCount.ToString("N0") + "人が視聴中";
 
             //配信全体の同時視聴者の最大数を記録
-            if (MaxViewer <= _nowViewerCount)
+            if (SaveData.Instance.MaxViewer <= _nowViewerCount)
             {
-                MaxViewer = _nowViewerCount;
+                SaveData.Instance.MaxViewer = _nowViewerCount;
             }
             //各配信の最大数を記録
             if (MaxTempViewer <= _nowViewerCount)
@@ -786,12 +768,17 @@ public class Viewer_Count : MonoBehaviour
         Debug.Log("END");
 
         //チャンネル情報更新スクリプトに情報を渡す(メイン)
-        channelInfomationUpdate.UpdateChannelMainInfomations(_nowViewerCount, MaxViewer, _sChatMoneyAmount);
+        channelInfomationUpdate.UpdateChannelMainInfomations(_nowViewerCount, SaveData.Instance.MaxViewer, _sChatMoneyAmount);
         channelInfomationUpdate.UpdateHiperChatAmounts(_bule, _yellow, _orange, _red);
         channelInfomationUpdate.UpdateHiperChatMoneys(_buleAmount, _yellowAmount, _orangeAmount, _redAmount);
 
         //配信の収益を追加
         moneyContoroller.GainMoney(_sChatMoneyAmount);
+
+        //別の2次元Listに過去のデータを保存
+        LiveActiveSortList.GenerateAcaiveHipeChatList();
+        //その他のデータをリストに格納
+        LiveActiveSortList.GenerateAchiveElementsList(Title, ChooseJunleNmae, ChooseStyleName, MaxTempViewer, _sChatMoneyAmount, (int)_nowSuperChatCount, _bule, _yellow, _orange, _red, _buleAmount, _yellowAmount, _orangeAmount, _redAmount);
 
     }
 

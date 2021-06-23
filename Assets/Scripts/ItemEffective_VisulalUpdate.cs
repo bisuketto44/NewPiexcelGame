@@ -33,17 +33,17 @@ public class ItemEffective_VisulalUpdate : MonoBehaviour
         int MotivationHealRateAmount = 0;
         int num = 0;
 
-        for (int i = 0; i < live_Data.ItemsEffective.Count; i++)
+        for (int i = 0; i < SaveData.Instance.Item_Effectives.Count; i++)
         {
             //購入していないアイテムはスルー
-            if (live_Data.ItemsEffective[i].OnOrOff != true)
+            if (SaveData.Instance.Item_Effectives[i].OnOrOff != true)
             {
                 continue;
             }
 
-            num = (int)(live_Data.ItemsEffective[i].MultiplierEffective * 100);
+            num = (int)(SaveData.Instance.Item_Effectives[i].MultiplierEffective * 100);
 
-            switch (live_Data.ItemsEffective[i].effectiveName)
+            switch (SaveData.Instance.Item_Effectives[i].effectiveName)
             {
 
                 case "視聴者数UP":

@@ -34,6 +34,12 @@ TagManager:
   - PlayerObject
   - rotation
   - LayoutStoreBOX
+  - Left_Cars
+  - Right_Cars
+  - collRIGHT
+  - collLEFT
+  - collUP
+  - collDOWN
   layers:
   - Default
   - TransparentFX

@@ -41,7 +41,7 @@ public class AcaiveContoroller : MonoBehaviour
         Change(4);
 
         //表示するスパチャのマックス数を持ってくる
-        InfenityScrollActivate.max = LiveAcaiveStoreList.AcaiveLiveList[whatNumberOfData].Count;
+        InfenityScrollActivate.max = SaveData.Instance.AcaiveLiveList[whatNumberOfData].HiperChatList.Count;
 
         //Listの何番を表示するかを決定
         InfenityScrollActivate.WhatChats = whatNumberOfData;

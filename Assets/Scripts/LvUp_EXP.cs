@@ -19,8 +19,7 @@ public class LvUp_EXP : MonoBehaviour
     //現在のレベル
     public int currentLevel;
     //経験値の基礎値
-    [SerializeField]
-    private int BaseExp = 1500;
+    private int BaseExp = 5000;
     //経験値テーブル作成の際の倍率
     [SerializeField]
     private float tablex = 2;
@@ -28,7 +27,7 @@ public class LvUp_EXP : MonoBehaviour
     //現在の経験値
     private int currentExp = 0;
     [SerializeField]
-    private int _comprehensiveEXP = 0;
+    public int _comprehensiveEXP = 0;
 
 
 

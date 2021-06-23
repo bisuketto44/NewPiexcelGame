@@ -124,21 +124,21 @@ public class SetLiveContents : MonoBehaviour
     public void SetContentToTheMainScreen_Junle(int formWhichContent)
     {
         string[] Chars;
-        Chars = new string[5] { "ゲーム実況", "歌配信", "ダンス配信", "雑談配信", "お絵描き配信" };
+        Chars = new string[5] { "ゲーム配信", "歌配信", "ダンス配信", "雑談配信", "お絵描き配信" };
 
         AvoidRepitiaon(formWhichContent, 5, _UI_Main_Contents_JunleText, Chars);
 
         //各選択したジャンルのオンに、選択されたもの以外をオフにする
-        for (int i = 0; i < LiveData.JuneEffective.Count; i++)
+        for (int i = 0; i < SaveData.Instance.junle_Effective.Count; i++)
         {
-            LiveData.JuneEffective[i].OnorOff = false;
+            SaveData.Instance.junle_Effective[i].OnorOff = false;
         }
-        LiveData.JuneEffective[formWhichContent].OnorOff = true;
+        SaveData.Instance.junle_Effective[formWhichContent].OnorOff = true;
 
         //コラボ以外のジャンルを適用した場合はコラボキャラの倍率をオフに
-        for (int i = 0; i < LiveData.CollaboChaeEffcrive.Count; i++)
+        for (int i = 0; i < SaveData.Instance.CollaboChar_Effective.Count; i++)
         {
-            LiveData.CollaboChaeEffcrive[i].OnOrOff = false;
+            SaveData.Instance.CollaboChar_Effective[i].OnOrOff = false;
         }
 
         //コラボ以外の時にはコラボキャラ選択を結果UIを非表示に
@@ -159,11 +159,11 @@ public class SetLiveContents : MonoBehaviour
         AvoidRepitiaon(formWhichContent, 6, _UI_Main_Contents_StyleText, Chars);
 
         //各選択したスタイルのオンに、選択されたもの以外をオフにする
-        for (int i = 0; i < LiveData.StyleEffective.Count; i++)
+        for (int i = 0; i < SaveData.Instance.Style_Effective.Count; i++)
         {
-            LiveData.StyleEffective[i].OnOrOff = false;
+            SaveData.Instance.Style_Effective[i].OnOrOff = false;
         }
-        LiveData.StyleEffective[formWhichContent].OnOrOff = true;
+        SaveData.Instance.Style_Effective[formWhichContent].OnOrOff = true;
 
 
     }
@@ -180,11 +180,11 @@ public class SetLiveContents : MonoBehaviour
         AvoidRepitiaon(formWhichContent, 3, _UI_Main_Contents_TimeText, Chars);
 
         //時間選択追加の必要あり
-        for (int i = 0; i < LiveData.LiveTimeEffective.Count; i++)
+        for (int i = 0; i < SaveData.Instance.LiveTime.Count; i++)
         {
-            LiveData.LiveTimeEffective[i].OnOrOff = false;
+            SaveData.Instance.LiveTime[i].OnOrOff = false;
         }
-        LiveData.LiveTimeEffective[formWhichContent].OnOrOff = true;
+        SaveData.Instance.LiveTime[formWhichContent].OnOrOff = true;
 
     }
 
@@ -200,11 +200,11 @@ public class SetLiveContents : MonoBehaviour
         AvoidRepitiaon(formWhichContent, 4, _UI_Main_Contents_Motivation, Chars);
 
         //各選択したやる気%をオンに、選択されたもの以外をオフにする
-        for (int i = 0; i < LiveData.MotivationEffectives.Count; i++)
+        for (int i = 0; i < SaveData.Instance.motivation_Effective.Count; i++)
         {
-            LiveData.MotivationEffectives[i].OnOrOff = false;
+            SaveData.Instance.motivation_Effective[i].OnOrOff = false;
         }
-        LiveData.MotivationEffectives[formWhichContent].OnOrOff = true;
+        SaveData.Instance.motivation_Effective[formWhichContent].OnOrOff = true;
 
 
     }
@@ -310,18 +310,18 @@ public class SetLiveContents : MonoBehaviour
         _UI_Main_Contents_JunleText.text = "コラボ配信";
 
         //コラボジャンルを適用
-        for (int i = 0; i < LiveData.JuneEffective.Count; i++)
+        for (int i = 0; i < SaveData.Instance.junle_Effective.Count; i++)
         {
-            LiveData.JuneEffective[i].OnorOff = false;
+           SaveData.Instance.junle_Effective[i].OnorOff = false;
         }
-        LiveData.JuneEffective[5].OnorOff = true;
+       SaveData.Instance.junle_Effective[5].OnorOff = true;
 
         //コラボキャラの倍率を適用
-        for (int i = 0; i < LiveData.CollaboChaeEffcrive.Count; i++)
+        for (int i = 0; i < SaveData.Instance.CollaboChar_Effective.Count; i++)
         {
-            LiveData.CollaboChaeEffcrive[i].OnOrOff = false;
+            SaveData.Instance.CollaboChar_Effective[i].OnOrOff = false;
         }
-        LiveData.CollaboChaeEffcrive[WhichCharacter].OnOrOff = true;
+        SaveData.Instance.CollaboChar_Effective[WhichCharacter].OnOrOff = true;
 
 
 

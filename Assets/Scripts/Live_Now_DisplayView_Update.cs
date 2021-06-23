@@ -37,9 +37,9 @@ public class Live_Now_DisplayView_Update : MonoBehaviour
     private void SetCollaboCharacter()
     {
         //選択されたコラボキャラクターのアニメーションオブジェクトをオンに
-        for (int i = 0; i < live_Data.CollaboChaeEffcrive.Count; i++)
+        for (int i = 0; i < SaveData.Instance.CollaboChar_Effective.Count; i++)
         {
-            if (live_Data.CollaboChaeEffcrive[i].OnOrOff == true)
+            if (SaveData.Instance.CollaboChar_Effective[i].OnOrOff == true)
             {
                 CollaboCharcters[i].SetActive(true);
                 ChooseCollboChar = i;

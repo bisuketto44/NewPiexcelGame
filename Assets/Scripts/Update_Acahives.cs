@@ -52,24 +52,24 @@ public class Update_Acahives : MonoBehaviour
     public void UpdateAchiveBasicInfomations()
     {
         //各データを更新
-        TileText.text = LiveAchiveSList.AcaiveElementsList[whichDataLists].Title;
-        JunleText.text = LiveAchiveSList.AcaiveElementsList[whichDataLists].Junel;
-        StyleText.text = LiveAchiveSList.AcaiveElementsList[whichDataLists].Style;
-        MaxViewerThisLiveText.text = "最高同時視聴者数 : " + LiveAchiveSList.AcaiveElementsList[whichDataLists].MaxViewer.ToString("N0") + "人";
-        HiperChatMoneyText.text = LiveAchiveSList.AcaiveElementsList[whichDataLists].HiperchatMoney.ToString("N0");
-        HiperChatAmountText.text = LiveAchiveSList.AcaiveElementsList[whichDataLists].HipechatAmount.ToString("N0") + "個";
+        TileText.text = SaveData.Instance.AcaiveElementsList[whichDataLists].Title;
+        JunleText.text = SaveData.Instance.AcaiveElementsList[whichDataLists].Junel;
+        StyleText.text = SaveData.Instance.AcaiveElementsList[whichDataLists].Style;
+        MaxViewerThisLiveText.text = "最高同時視聴者数 : " + SaveData.Instance.AcaiveElementsList[whichDataLists].MaxViewer.ToString("N0") + "人";
+        HiperChatMoneyText.text = SaveData.Instance.AcaiveElementsList[whichDataLists].HiperchatMoney.ToString("N0");
+        HiperChatAmountText.text = SaveData.Instance.AcaiveElementsList[whichDataLists].HipechatAmount.ToString("N0") + "個";
 
-        BuleAmountText.text = "青チャット : " + LiveAchiveSList.AcaiveElementsList[whichDataLists].BuleAmount.ToString("N0") + "個";
-        BuleMoneyText.text = LiveAchiveSList.AcaiveElementsList[whichDataLists].BuleMoney.ToString("N0");
+        BuleAmountText.text = "青チャット : " + SaveData.Instance.AcaiveElementsList[whichDataLists].BuleAmount.ToString("N0") + "個";
+        BuleMoneyText.text = SaveData.Instance.AcaiveElementsList[whichDataLists].BuleMoney.ToString("N0");
 
-        YellowAmountText.text = "黄チャット : " + LiveAchiveSList.AcaiveElementsList[whichDataLists].YellowAmount.ToString("N0") + "個";
-        YellowMoneyText.text = LiveAchiveSList.AcaiveElementsList[whichDataLists].YellowMoney.ToString("N0");
+        YellowAmountText.text = "黄チャット : " + SaveData.Instance.AcaiveElementsList[whichDataLists].YellowAmount.ToString("N0") + "個";
+        YellowMoneyText.text = SaveData.Instance.AcaiveElementsList[whichDataLists].YellowMoney.ToString("N0");
 
-        OrangeAmountText.text = "橙チャット : " + LiveAchiveSList.AcaiveElementsList[whichDataLists].OrangeAmount.ToString("N0") + "個";
-        OrangeMoneyText.text = LiveAchiveSList.AcaiveElementsList[whichDataLists].OrangeMoney.ToString("N0");
+        OrangeAmountText.text = "橙チャット : " + SaveData.Instance.AcaiveElementsList[whichDataLists].OrangeAmount.ToString("N0") + "個";
+        OrangeMoneyText.text = SaveData.Instance.AcaiveElementsList[whichDataLists].OrangeMoney.ToString("N0");
 
-        RedAmountText.text = "赤チャット : " + LiveAchiveSList.AcaiveElementsList[whichDataLists].RedAmount.ToString("N0") + "個";
-        RedMoneyText.text = LiveAchiveSList.AcaiveElementsList[whichDataLists].RedMoney.ToString("N0");
+        RedAmountText.text = "赤チャット : " + SaveData.Instance.AcaiveElementsList[whichDataLists].RedAmount.ToString("N0") + "個";
+        RedMoneyText.text = SaveData.Instance.AcaiveElementsList[whichDataLists].RedMoney.ToString("N0");
 
     }
 

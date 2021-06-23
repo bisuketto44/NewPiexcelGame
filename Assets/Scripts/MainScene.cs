@@ -50,9 +50,12 @@ public class MainScene : MonoBehaviour
         Object_B = GameObject.FindWithTag("B");
         Object_B.transform.GetChild(0).gameObject.SetActive(true);
 
-        //リセットキャラクター再生中ならそれも破棄
+        //リセットキャラクター再生中ならそれも破棄、Doorオブジェクトも破棄
         var Rset = GameObject.FindWithTag("ResetCharcter");
         Destroy(Rset);
+        Destroy(GameObject.FindWithTag("Door").gameObject);
+
+
 
         //アイテム配置ボタンをアクティブ化
         var LayoutSceneScript = Object_B.transform.GetChild(0).GetComponent<LayoutScene>();
@@ -71,15 +74,15 @@ public class MainScene : MonoBehaviour
         if (itemPurchase.boolPC1 == true)
         {
             var StoreBOX = GameObject.FindWithTag("LayoutStoreBOX").GetComponent<Layout_Items_StoreBOX>();
-            StoreBOX.StoreBox[19].transform.GetChild(1).gameObject.SetActive(true);
-            StoreBOX.StoreBoxIns[19].transform.GetChild(1).gameObject.SetActive(true);
+            SaveData.Instance.StoreBox[19].transform.GetChild(1).gameObject.SetActive(true);
+           SaveData.Instance.StoreBoxIns[19].transform.GetChild(1).gameObject.SetActive(true);
             itemPurchase.boolPC1 = false;
         }
         if (itemPurchase.boolPC2 == true)
         {
             var StoreBOX = GameObject.FindWithTag("LayoutStoreBOX").GetComponent<Layout_Items_StoreBOX>();
-            StoreBOX.StoreBox[19].transform.GetChild(2).gameObject.SetActive(true);
-            StoreBOX.StoreBoxIns[19].transform.GetChild(2).gameObject.SetActive(true);
+            SaveData.Instance.StoreBox[19].transform.GetChild(2).gameObject.SetActive(true);
+            SaveData.Instance.StoreBoxIns[19].transform.GetChild(2).gameObject.SetActive(true);
             itemPurchase.boolPC2 = false;
         }
 

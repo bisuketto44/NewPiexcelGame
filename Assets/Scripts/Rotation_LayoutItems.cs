@@ -59,7 +59,7 @@ public class Rotation_LayoutItems : MonoBehaviour
             //どの配列(ゲームオブジェクトにアクセスするかを決定)
             ReturnIndex();
             ReturnIndexIns();
-            
+
         }
 
         return;
@@ -87,17 +87,17 @@ public class Rotation_LayoutItems : MonoBehaviour
         Destroy(ThisGG);
 
         //呼び出したときに持ってくるレイアウトアイテムを回転したバージョンに書き換える
-        whatITEM.StoreBox[whatItems] = null;
+        SaveData.Instance.StoreBox[whatItems] = null;
 
         //生成するレイアウトアイテムを変更
-        whatITEM.StoreBox[whatItems] = LayoutIndex[count];
+        SaveData.Instance.StoreBox[whatItems] = LayoutIndex[count];
 
         //書き換えた後のレイアウトアイテムを元の選択オブジェクトの位置に生成
-        Instantiate(whatITEM.StoreBox[whatItems], ThisGG.gameObject.transform.position, Quaternion.identity);
+        Instantiate(SaveData.Instance.StoreBox[whatItems], ThisGG.gameObject.transform.position, Quaternion.identity);
 
-        whatITEM.StoreBoxIns[whatItems] = null;
+        SaveData.Instance.StoreBoxIns[whatItems] = null;
         //決定ボタン時に生成するインスタンスオブジェクトを回転後のオブジェクトに変更 
-        whatITEM.StoreBoxIns[whatItems] = InsLayoutIndex[count];
+        SaveData.Instance.StoreBoxIns[whatItems] = InsLayoutIndex[count];
 
 
     }

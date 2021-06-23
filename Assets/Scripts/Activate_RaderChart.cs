@@ -12,10 +12,16 @@ public class Activate_RaderChart : MonoBehaviour
     Style_Status_RaderChart RaderChartBaseClass;
 
     // レーダーチャートを初期化
-    void Start()
+    void Awake()
     {
+        Debug.Log("先に呼ばれたい");
         RaderChartBaseClass = new Style_Status_RaderChart(1, 1, 1, 1, 1, 1);
         RaderChartScript.SetStats(RaderChartBaseClass);
+
+        //=================================================================================
+        //メッシュ初期化後にManagementスクリプトを初期化する
+        //=================================================================================
+        this.GetComponent<Style_Status_Management>().enabled = true;
 
     }
 
@@ -28,6 +34,7 @@ public class Activate_RaderChart : MonoBehaviour
 
     public void StyleUpRaderChart(int WhichStyle)
     {
+
         switch (WhichStyle)
         {
             case 0:
