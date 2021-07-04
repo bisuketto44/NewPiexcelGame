@@ -34,9 +34,13 @@ public class CollaboPictureBookUpdate : MonoBehaviour
     [SerializeField]
     private GameObject HiperChatContentGameObject;
 
+    private SE_Contoroller sE_Contoroller;
+
 
     void Awake()
     {
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+
         //=================================================================================
         //獲得したハイパーチャットを復元
         //=================================================================================
@@ -96,6 +100,8 @@ public class CollaboPictureBookUpdate : MonoBehaviour
         WidnowPanel.color = new Color32(143, 147, 91, 70);
         WidnowPanel2.color = new Color32(143, 147, 91, 70);
 
+        sE_Contoroller.PlayDicideSound();
+
         //まだゲットしていなかった場合
         if (SaveData.Instance.YellowChatComents[index].GetOrNot == false)
         {
@@ -110,6 +116,8 @@ public class CollaboPictureBookUpdate : MonoBehaviour
         ChatCommentaryText.text = SaveData.Instance.YellowChatComents[index].Commentary;
         ChatTitle.text = SaveData.Instance.YellowChatComents[index].Title;
 
+
+
     }
 
     public void DisPlayChatsContentOrange(int index)
@@ -117,6 +125,8 @@ public class CollaboPictureBookUpdate : MonoBehaviour
         HiperChatContentGameObject.SetActive(true);
         WidnowPanel.color = new Color32(147, 121, 91, 70);
         WidnowPanel2.color = new Color32(147, 121, 91, 70);
+
+        sE_Contoroller.PlayDicideSound();
 
         if (SaveData.Instance.OrangeChatComents[index].GetOrNot == false)
         {
@@ -131,6 +141,8 @@ public class CollaboPictureBookUpdate : MonoBehaviour
         ChatCommentaryText.text = SaveData.Instance.OrangeChatComents[index].Commentary;
         ChatTitle.text = SaveData.Instance.OrangeChatComents[index].Title;
 
+
+
     }
 
     public void DisPlayChatsContentRed(int index)
@@ -138,6 +150,8 @@ public class CollaboPictureBookUpdate : MonoBehaviour
         HiperChatContentGameObject.SetActive(true);
         WidnowPanel.color = new Color32(147, 92, 91, 70);
         WidnowPanel2.color = new Color32(147, 92, 91, 70);
+
+        sE_Contoroller.PlayDicideSound(); sE_Contoroller.PlayDicideSound();
 
         if (SaveData.Instance.RedChatComents[index].GetOrNot == false)
         {

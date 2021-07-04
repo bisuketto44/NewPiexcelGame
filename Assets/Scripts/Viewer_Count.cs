@@ -219,9 +219,15 @@ public class Viewer_Count : MonoBehaviour
     //レアチャット獲得確率UP
     public float RareChatGetUp = 0f;
 
-
     //選択したジャンルを保存する変数
     int DecideJunle;
+
+    private SE_Contoroller sE_Contoroller;
+
+    void Awake()
+    {
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+    }
 
     //配信開始ボタン処理
     public void Go()
@@ -230,6 +236,8 @@ public class Viewer_Count : MonoBehaviour
         _Viewer = DecideBaseViewrs();
         //配信時間を決定
         DicideLiveTime();
+
+        Debug.Log(_checkJunle);
 
 
         //配信の必要フラグがすべて立っていたら開始
@@ -338,6 +346,7 @@ public class Viewer_Count : MonoBehaviour
         else
         {
             WarningWindow.gameObject.SetActive(true);
+            sE_Contoroller.PlayMainContentBtnSound();
             return;
         }
 

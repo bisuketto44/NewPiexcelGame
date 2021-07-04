@@ -47,6 +47,13 @@ public class Rotation_LayoutItems : MonoBehaviour
     private GameObject[] LayoutIndex;
     private GameObject[] InsLayoutIndex;
 
+    private SE_Contoroller sE_Contoroller;
+
+    void Awake()
+    {
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+    }
+
 
     public void RotationBtnAcativate(int temp)
     {
@@ -98,6 +105,8 @@ public class Rotation_LayoutItems : MonoBehaviour
         SaveData.Instance.StoreBoxIns[whatItems] = null;
         //決定ボタン時に生成するインスタンスオブジェクトを回転後のオブジェクトに変更 
         SaveData.Instance.StoreBoxIns[whatItems] = InsLayoutIndex[count];
+
+        sE_Contoroller.PlayDicideSound();
 
 
     }

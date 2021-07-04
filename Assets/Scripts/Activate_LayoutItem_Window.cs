@@ -13,9 +13,17 @@ public class Activate_LayoutItem_Window : MonoBehaviour
     [SerializeField]
     Layout_Items_StoreBOX LayoutStore;
 
+    private SE_Contoroller sE_Contoroller;
+
+    void Awake()
+    {
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+    }
+
     public void ActivateLayoutWindow()
     {
         this.gameObject.SetActive(true);
+        sE_Contoroller.PlayDicideSound();
 
         //配置済み or 名前のどちらかを表示
         for (int i = 0; i < SaveData.Instance.whatBtn.Length; i++)
@@ -38,5 +46,6 @@ public class Activate_LayoutItem_Window : MonoBehaviour
     public void back()
     {
         this.gameObject.SetActive(false);
+        sE_Contoroller.PlayCancelSound();
     }
 }

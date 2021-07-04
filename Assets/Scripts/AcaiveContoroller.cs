@@ -35,6 +35,13 @@ public class AcaiveContoroller : MonoBehaviour
     [SerializeField]
     GameObject[] Views;
 
+    private SE_Contoroller sE_Contoroller;
+
+    void Awake()
+    {
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+    }
+
     public void ActivateAcaives(int whatNumberOfData)
     {
         //詳細ビューを表示
@@ -62,6 +69,7 @@ public class AcaiveContoroller : MonoBehaviour
     {
         ArchivesSelectView.SetActive(false);
         ChannelView.SetActive(true);
+        sE_Contoroller.PlayCancelSound();
     }
 
     //戻るボタン
@@ -69,6 +77,7 @@ public class AcaiveContoroller : MonoBehaviour
     {
         ArchivesSelectView.SetActive(true);
         ArchivesView.SetActive(false);
+        sE_Contoroller.PlayCancelSound();
 
     }
 
@@ -80,6 +89,8 @@ public class AcaiveContoroller : MonoBehaviour
             if (i == num)
             {
                 Views[i].SetActive(true);
+                //サウンドを鳴らす
+                sE_Contoroller.PlayDicideSound();
             }
             else
             {

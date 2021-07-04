@@ -26,10 +26,19 @@ public class Items_Infomation_Window : MonoBehaviour
     [SerializeField]
     Text ItemEffectiveDescText;
 
+    private SE_Contoroller sE_Contoroller;
+
+    void Awake()
+    {
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+    }
+
 
     public void ActivateItemsInfomation(int WhichItem)
     {
         this.gameObject.SetActive(true);
+
+        sE_Contoroller.PlayDicideSound();
 
         //要素を削除
         if (BackGroundPanel.transform.childCount >= 1)
@@ -50,5 +59,6 @@ public class Items_Infomation_Window : MonoBehaviour
     public void back()
     {
         this.gameObject.SetActive(false);
+        sE_Contoroller.PlayCancelSound();
     }
 }

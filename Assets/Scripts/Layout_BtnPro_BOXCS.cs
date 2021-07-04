@@ -15,6 +15,13 @@ public class Layout_BtnPro_BOXCS : MonoBehaviour
     [SerializeField]
     Layout_Items_StoreBOX layout_Items_StoreBOX;
 
+    private SE_Contoroller sE_Contoroller;
+
+    void Awake()
+    {
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+    }
+
     //決定ボタンを押したときの処理
     public void InstansiateItems(int temp)
     {
@@ -48,6 +55,8 @@ public class Layout_BtnPro_BOXCS : MonoBehaviour
             }
 
         }
+
+        sE_Contoroller.PlayDicideSound();
     }
 
     //レイアウトアイテムを選んだ時の処理
@@ -166,6 +175,7 @@ public class Layout_BtnPro_BOXCS : MonoBehaviour
             Destroy(whatitems.isStoreBox[temp]);
             whatitems.isStoreBox[temp] = null;
             SaveData.Instance.whatBtn[temp] = false;
+            sE_Contoroller.PlayCancelSound();
 
         }
         //何もない状態でオブジェクトを選択した場合の処理
@@ -175,6 +185,7 @@ public class Layout_BtnPro_BOXCS : MonoBehaviour
             Vector2 pos = new Vector2(5, -2);
             Destroy(ThisGG);
             Instantiate(SaveData.Instance.StoreBox[temp], pos, Quaternion.identity);
+            sE_Contoroller.PlayDicideSound();
 
         }
         //回転ボタンの表示
@@ -198,6 +209,8 @@ public class Layout_BtnPro_BOXCS : MonoBehaviour
 
         Btn2.transform.GetChild(0).gameObject.SetActive(false);
         Destroy(ThisGG);
+
+        sE_Contoroller.PlayCancelSound();
 
     }
 }

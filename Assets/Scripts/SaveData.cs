@@ -69,7 +69,7 @@ public class SaveData : ISerializationCallbackReceiver
     //スタイルのステータスポイント
     public int[] StyleSatus = new int[] { 0, 0, 0, 0, 0, 0 };
 
-    public string ChannelNameString = "サンプルデータ";
+    public string ChannelNameString = "名無しチャンネル";
 
     //ぞれぞれのジャンルを何回放送したかをカウントする変数
     public int[] CountOfJunle = new int[6];

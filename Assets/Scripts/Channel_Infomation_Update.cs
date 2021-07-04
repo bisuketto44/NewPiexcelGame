@@ -26,7 +26,7 @@ public class Channel_Infomation_Update : MonoBehaviour
     [SerializeField]
     Text ChannelNameText;
 
-    [Tooltip("変更後のチャンネル")]
+    [Tooltip("変更後のチャンネル名")]
     [SerializeField]
     Text ChangeChannelNameText;
 
@@ -54,6 +54,12 @@ public class Channel_Infomation_Update : MonoBehaviour
     [SerializeField]
     private CollaboChar_Info_Database collaboCharInfoDatabase;
 
+    private SE_Contoroller sE_Contoroller;
+
+    [Tooltip("名前入力を促す注意パネルを表示")]
+    [SerializeField]
+    private GameObject CautionInputTextPanel;
+
     void Awake()
     {
         //String型にチャンネル名を保存
@@ -77,6 +83,8 @@ public class Channel_Infomation_Update : MonoBehaviour
         YellowMoneyText.text = SaveData.Instance.yellowmoney.ToString("N0");
         OrangeMoneyText.text = SaveData.Instance.orangemoney.ToString("N0");
         RedMoneyText.text = SaveData.Instance.redmoney.ToString("N0");
+
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
     }
 
     //チャンネルの基本情報を更新するメソッド
@@ -141,16 +149,60 @@ public class Channel_Infomation_Update : MonoBehaviour
     public void ActivateChannnelNameChangeWindow()
     {
         ChannelNameChangeWindow.SetActive(true);
+        sE_Contoroller.PlayDicideSound();
     }
 
     //変更後のチャンネル名を適用する(ボタンから呼び出し)
     public void AplayChannelName()
     {
+        //=================================================================================
+        //文字が入力されていない or 文字が空白のみで入力されている場合は拒否
+        //=================================================================================
+        if (string.IsNullOrWhiteSpace(ChangeChannelNameText.text))
+        {
+            CautionInputTextPanel.SetActive(true);
+            sE_Contoroller.PlayMainContentBtnSound();
+            return;
+        }
+
+        //=================================================================================
+        //初回時は強制で名前を決定させる
+        //=================================================================================
+        if (SaveData.Instance.PreviousDataIsAvailableOrNot == false)
+        {
+
+            ChannelNameText.text = ChangeChannelNameText.text;
+            SaveData.Instance.ChannelNameString = ChannelNameText.text;
+            ChannelNameChangeWindow.SetActive(false);
+            SaveData.Instance.PreviousDataIsAvailableOrNot = true;
+            sE_Contoroller.PlayDicideSound();
+
+            return;
+        }
+
         //変更した名前を適用
         ChannelNameText.text = ChangeChannelNameText.text;
         SaveData.Instance.ChannelNameString = ChannelNameText.text;
         ChannelNameChangeWindow.SetActive(false);
+        sE_Contoroller.PlayDicideSound();
     }
 
+    public void InActivate()
+    {
+        //=================================================================================
+        //初回時はフラグを立てる
+        //=================================================================================
+        if (SaveData.Instance.PreviousDataIsAvailableOrNot == false)
+        {
+            ChannelNameChangeWindow.SetActive(false);
+            SaveData.Instance.PreviousDataIsAvailableOrNot = true;
+            sE_Contoroller.PlayCancelSound();
+
+            return;
+        }
+        ChannelNameChangeWindow.SetActive(false);
+        sE_Contoroller.PlayCancelSound();
+
+    }
 
 }

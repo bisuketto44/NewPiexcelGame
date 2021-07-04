@@ -29,6 +29,8 @@ namespace PixelsoftGames.PixelUI
         // The currently active pane
         private GameObject activePane = null;
 
+        private SE_Contoroller sE_Contoroller;
+
         #endregion
 
         #region Monobehaviour Callbacks
@@ -36,6 +38,7 @@ namespace PixelsoftGames.PixelUI
         private void Start()
         {
             SetupContent();
+            sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
         }
 
         #endregion
@@ -57,6 +60,7 @@ namespace PixelsoftGames.PixelUI
             activePane.SetActive(false);
             activePane = ContentPanes[index];
             activePane.SetActive(true);
+            sE_Contoroller.PlayDicideSound();
         }
 
         #endregion

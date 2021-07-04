@@ -16,15 +16,17 @@ public class PictureBookDriver : MonoBehaviour
     [SerializeField]
     private RectTransform[] TextS;
 
-
-
     Vector3 Velocity;
 
     private bool left;
     private bool right;
 
+    private SE_Contoroller sE_Contoroller;
+
     void Awake()
     {
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+
         _Currentpanel = 0;
 
         for (int i = 0; i < TextS.Length; i++)
@@ -125,6 +127,7 @@ public class PictureBookDriver : MonoBehaviour
 
         //文字をスライドするためのメソッドを呼ぶ
         SlideInOutText(num);
+        sE_Contoroller.PlayDicideSound();
 
     }
 

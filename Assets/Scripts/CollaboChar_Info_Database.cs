@@ -18,6 +18,7 @@ public class CollaboChar_Info_Database : MonoBehaviour
     [SerializeField]
     GameObject NewEarndPanel;
 
+    private SE_Contoroller sE_Contoroller;
 
     int maxCount = 11;
 
@@ -36,6 +37,8 @@ public class CollaboChar_Info_Database : MonoBehaviour
         CollaboCharinfo.Add(new CollaboChar_Infomation("ウォーキングアンデット", 10, "アメリカドラマ出演経験あり。世界を股にかける配信者。", "★★★★★★", 300000));
         CollaboCharinfo.Add(new CollaboChar_Infomation("ビビデバビデ嬢", 11, "噂によると魔女の血を引くお嬢様。ド派手な配信で世界を席巻する。", "★★★★★★★", 500000));
         CollaboCharinfo.Add(new CollaboChar_Infomation("Mr.サンタクロース", 12, "世界中でプレゼント企画を行う大人気者。世界中で大人気の配信者。", "★★★★★★★★", 1000000));
+
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
 
         //=================================================================================
         //解放したコラボ相手を復元
@@ -61,6 +64,7 @@ public class CollaboChar_Info_Database : MonoBehaviour
         {
             CollaboCharcters[SaveData.Instance.currentCount].gameObject.SetActive(true);
             NewEarndPanel.SetActive(true);
+            sE_Contoroller.PlayMainContentBtnSound();
             SaveData.Instance.currentCount++;
             if (SaveData.Instance.currentCount == maxCount)
             {

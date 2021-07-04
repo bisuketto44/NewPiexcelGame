@@ -42,6 +42,8 @@ public class AcaiveChats : MonoBehaviour
     [SerializeField]
     Button ThisButton;
 
+    private SE_Contoroller sE_Contoroller;
+
     public void UpdateChat(int count, int whatchats)
     {
         //ソートした後のリストの一番目を取得してくる
@@ -83,6 +85,10 @@ public class AcaiveChats : MonoBehaviour
     {
         //ウィンドウをアクティブ化
         GameObject.FindWithTag("HiperChatViewParent").transform.GetChild(0).gameObject.SetActive(true);
+
+        //サウンドを鳴らす
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+        sE_Contoroller.PlayAttensionSound();
 
         //取得
         Image1 = GameObject.FindWithTag("HiperChatViewImage1").GetComponent<Image>();

@@ -32,11 +32,33 @@ public class Layout_Items_StoreBOX : MonoBehaviour
         //=================================================================================
         if (SaveData.Instance.PreviousDataIsAvailableOrNot == true)
         {
+            //再読み込み
+            SaveData.Instance.Reload();
             for (int i = 0; i < StoreBoxIns.Length; i++)
             {
                 if (SaveData.Instance.whatBtn[i] == true)
                 {
                     isStoreBox[i] = Instantiate(SaveData.Instance.StoreBoxIns[i], new Vector2(SaveData.Instance.X[i], SaveData.Instance.Y[i]), Quaternion.identity, ParentTransform);
+                }
+
+            }
+            //=================================================================================
+            //StreamDeskのPCアップグレードを反映
+            //=================================================================================
+            if (SaveData.Instance.Item_Effectives[19].OnOrOff == true)
+            {
+                if (GameObject.Find("Stream_Desk_Ins(Clone)") != null)
+                {
+                    GameObject.Find("Stream_Desk_Ins(Clone)").transform.GetChild(1).gameObject.SetActive(true);
+                }
+
+            }
+            if (SaveData.Instance.Item_Effectives[20].OnOrOff == true)
+            {
+                if (GameObject.Find("Stream_Desk_Ins(Clone)") != null)
+                {
+                    GameObject.Find("Stream_Desk_Ins(Clone)").transform.GetChild(2).gameObject.SetActive(true);
+
                 }
 
             }

@@ -15,6 +15,8 @@ public class Layout_InsItems : MonoBehaviour
     private GameObject UITimerObject;
     private GameObject rotatin;
 
+    private SE_Contoroller sE_Contoroller;
+
     void Awake()
     {
         rotatin = GameObject.FindWithTag("rotation");
@@ -22,7 +24,7 @@ public class Layout_InsItems : MonoBehaviour
         {
             Debug.Log("獲得できてないよ");
         }
-
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
 
     }
 
@@ -67,6 +69,8 @@ public class Layout_InsItems : MonoBehaviour
 
                 //アイテム選択中に別のアイテムを選択できないようにbool設定
                 once = false;
+
+                sE_Contoroller.PlayCancelSound();
 
                 //選択オブジェクトを生成したので、実態オブジェクトのほうは破棄。このスクリプトも呼ばれなくなる。
                 Destroy(this.gameObject);

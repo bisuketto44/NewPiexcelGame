@@ -38,13 +38,15 @@ public class Style_Status_Management : MonoBehaviour
     [SerializeField]
     private Activate_RaderChart RaderChart;
 
+    private SE_Contoroller sE_Contoroller;
+
+    [SerializeField]
+    Item_Purchase item_Purchase;
+
 
     void OnEnable()
     {
-        //=================================================================================
-        //データリロード
-        //=================================================================================
-        SaveData.Instance.Reload();
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
 
         //スタイルのレベルを全部0で初期化
         StyleSatus = new int[] { 0, 0, 0, 0, 0, 0 };
@@ -117,6 +119,12 @@ public class Style_Status_Management : MonoBehaviour
         //リストの強化状況に、現在のスタイルのレベルに合わせたValueをセットしてあげる
         SaveData.Instance.Style_Effective[whichStyle].BaseIncrease = Style_LiveEnhance_Value[StyleSatus[whichStyle] - 1];
 
+        if (item_Purchase.isloadDone == true)
+        {
+            sE_Contoroller.PlayDicideSound();
+        }
+
+
     }
 
     public void StylePointReSetBtn()
@@ -142,6 +150,7 @@ public class Style_Status_Management : MonoBehaviour
             SaveData.Instance.Style_Effective[i].BaseIncrease = 10;
 
         }
+        sE_Contoroller.PlayCancelSound();
 
     }
 }

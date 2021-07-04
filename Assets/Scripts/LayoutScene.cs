@@ -17,6 +17,13 @@ public class LayoutScene : MonoBehaviour
 
     GameObject Object_A;
 
+    private SE_Contoroller sE_Contoroller;
+
+    void Awake()
+    {
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+    }
+
     //終了ボタンの処理
     public void ToMain()
     {
@@ -47,10 +54,13 @@ public class LayoutScene : MonoBehaviour
         var Btn2 = GameObject.FindWithTag("Layout_Btn2");
         Btn2.transform.GetChild(0).gameObject.SetActive(false);
         rotationLayoutItems.back();
-    
+
         //=================================================================================
         // 戻るときに選択していたオブジェクトを破棄
         //=================================================================================
+
+        sE_Contoroller.PlayCancelSound();
+
         Destroy(ThisGG);
         this.gameObject.SetActive(false);
 

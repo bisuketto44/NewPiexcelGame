@@ -41,11 +41,16 @@ public class ChatSortNumber : UIBehaviour
     [SerializeField]
     Button ThisButton;
 
+    private SE_Contoroller sE_Contoroller;
+
     //表示に内容を描画
     public void HiperChatContentDesplay()
     {
         //ウィンドウをアクティブ化
         GameObject.FindWithTag("HiperChatViewParent").transform.GetChild(0).gameObject.SetActive(true);
+
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+        sE_Contoroller.PlayAttensionSound();
 
         //取得
         Image1 = GameObject.FindWithTag("HiperChatViewImage1").GetComponent<Image>();

@@ -92,11 +92,18 @@ public class SetLiveContents : MonoBehaviour
     [SerializeField]
     private Live_Data_Information LiveData;
 
+    private SE_Contoroller sE_Contoroller;
+
 
     //現在選択している画面を保存
     private int NowChooseContent;
 
     #endregion
+
+    void Awake()
+    {
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+    }
 
     /// <summary>
     /// ジャンル、スタイル、時間、やる気をそれぞれ表示する。ボタンからメソッドを呼ぶ
@@ -106,6 +113,8 @@ public class SetLiveContents : MonoBehaviour
     {
         _UI_Main_Contents.SetActive(false);
         _UI_Contents[WhichContent].SetActive(true);
+
+        sE_Contoroller.PlayDicideSound();
 
         //BackBtnを表示
         MainCloseBtn.SetActive(false);
@@ -218,6 +227,7 @@ public class SetLiveContents : MonoBehaviour
     /// <param name="Chars">表示する文字列。配列で受け取り、何番目かを判定したのちに引数のTextに沿って反映する</param>
     private void AvoidRepitiaon(int formWhichContent, int NumberOfCases, Text WhichText, string[] Chars)
     {
+
         //メイン画面に戻るため再表示
         _UI_Main_Contents.SetActive(true);
 
@@ -228,6 +238,8 @@ public class SetLiveContents : MonoBehaviour
                 WhichText.text = Chars[i];
             }
         }
+
+        sE_Contoroller.PlayDicideSound();
 
         //選択し終わった各コンテント画面は非表示に
         _UI_Contents[NowChooseContent].gameObject.SetActive(false);
@@ -252,6 +264,8 @@ public class SetLiveContents : MonoBehaviour
         //選択画面を保存
         NowChooseContent = WhichContent;
 
+        sE_Contoroller.PlayDicideSound();
+
         //メイン画面のコラボUIから飛んだ時にバックボタンを表示する
         if (MainCloseBtn.activeSelf == true)
         {
@@ -271,6 +285,8 @@ public class SetLiveContents : MonoBehaviour
         var info = CollaboChatrcterDatabase.gameObject.GetComponent<CollaboChar_Info_Database>();
 
         _CollaboPanelMask.SetActive(true);
+
+        sE_Contoroller.PlayDicideSound();
 
         //各テキストにコラボキャラの情報を格納
         _CharcterNameText.text = info.CollaboCharinfo[WhichCharacter].CharcterName;
@@ -306,15 +322,17 @@ public class SetLiveContents : MonoBehaviour
         LiveStartBtn.SetActive(true);
         BackBtn.SetActive(false);
 
+        sE_Contoroller.PlayCancelSound();
+
         //決定時にコラボ配信をメインテキストへ
         _UI_Main_Contents_JunleText.text = "コラボ配信";
 
         //コラボジャンルを適用
         for (int i = 0; i < SaveData.Instance.junle_Effective.Count; i++)
         {
-           SaveData.Instance.junle_Effective[i].OnorOff = false;
+            SaveData.Instance.junle_Effective[i].OnorOff = false;
         }
-       SaveData.Instance.junle_Effective[5].OnorOff = true;
+        SaveData.Instance.junle_Effective[5].OnorOff = true;
 
         //コラボキャラの倍率を適用
         for (int i = 0; i < SaveData.Instance.CollaboChar_Effective.Count; i++)
@@ -355,6 +373,8 @@ public class SetLiveContents : MonoBehaviour
         var Decidebtn = _CharacterChooseDecideBtn.gameObject.GetComponent<Button>();
         Decidebtn.onClick.RemoveAllListeners();
 
+        sE_Contoroller.PlayCancelSound();
+
         //決定確認画面に生成したイメージを削除
         Destroy(_CharcterIconPanelBackGround.transform.GetChild(0).gameObject);
         _CharcterChoosePanelMask.SetActive(false);
@@ -368,6 +388,8 @@ public class SetLiveContents : MonoBehaviour
     {
         _UI_Contents[NowChooseContent].SetActive(false);
         _UI_Main_Contents.SetActive(true);
+
+        sE_Contoroller.PlayCancelSound();
 
         //終了ボタンを表示
         MainCloseBtn.SetActive(true);

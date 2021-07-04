@@ -24,6 +24,8 @@ public class MainScene : MonoBehaviour
     private GameObject Object_B;
     CanvasScaler _Canvas;
 
+    private SE_Contoroller sE_Contoroller;
+
     //ゲーム開始時の処理
     void Start()
     {
@@ -34,6 +36,8 @@ public class MainScene : MonoBehaviour
         //キャラ生成を実行
         _animationUI = GameObject.FindWithTag("Door").GetComponent<AnimationUI>();
         _animationUI.DoorAnimation();
+
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
     }
 
     //シーンを複数ロードし、レイアウトシーンのほうは非表示にしておく。
@@ -55,7 +59,7 @@ public class MainScene : MonoBehaviour
         Destroy(Rset);
         Destroy(GameObject.FindWithTag("Door").gameObject);
 
-
+        sE_Contoroller.PlayDicideSound();
 
         //アイテム配置ボタンをアクティブ化
         var LayoutSceneScript = Object_B.transform.GetChild(0).GetComponent<LayoutScene>();

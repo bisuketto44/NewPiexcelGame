@@ -9,16 +9,28 @@ public class Live_Attribute_Window : MonoBehaviour
     private Item_Purchase btn;
     private int quantity = 1;
 
+    private SE_Contoroller sE_Contoroller;
+
+    void Awake()
+    {
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+    }
+
     //Open the window
     public void ActivateWindow()
     {
+
         this.gameObject.SetActive(true);
+        sE_Contoroller.PlayDicideSound();
+
     }
 
     //Closed the window
     public void InActivateWindow()
     {
+
         this.gameObject.SetActive(false);
+        sE_Contoroller.PlayCancelSound();
     }
 
 
@@ -27,6 +39,7 @@ public class Live_Attribute_Window : MonoBehaviour
     {
 
         this.gameObject.SetActive(true);
+
 
         switch (s)
         {
@@ -97,6 +110,8 @@ public class Live_Attribute_Window : MonoBehaviour
                 GetItems(21);
                 break;
         }
+
+        sE_Contoroller.PlayDicideSound();
     }
 
     public void Shop_Btn_Chancel()
@@ -108,6 +123,8 @@ public class Live_Attribute_Window : MonoBehaviour
         GameObject.FindWithTag("QuantityText").transform.GetChild(0).gameObject.GetComponent<Text>().text = "購入数 : 1";
         GameObject.FindWithTag("QuantityText").transform.GetChild(0).gameObject.SetActive(false);
         GameObject.FindWithTag("QuantityPanel").transform.GetChild(0).gameObject.SetActive(false);
+
+        sE_Contoroller.PlayCancelSound();
 
         Destroy(iconPanel.transform.GetChild(0).gameObject);
         this.gameObject.SetActive(false);
@@ -166,6 +183,7 @@ public class Live_Attribute_Window : MonoBehaviour
     public void QuantityPulsBtn()
     {
         var shopCondi = GameObject.FindWithTag("Shop_Controller").GetComponent<Shop_Conditions>();
+        sE_Contoroller.PlayDicideSound();
 
         //購入上限は1個~キットの残り個数まで
         quantity = Mathf.Clamp(quantity + 1, 1, shopCondi.StyleKitCount);
@@ -179,6 +197,7 @@ public class Live_Attribute_Window : MonoBehaviour
     public void QuantityminasBtn()
     {
         var shopCondi = GameObject.FindWithTag("Shop_Controller").GetComponent<Shop_Conditions>();
+        sE_Contoroller.PlayDicideSound();
 
         //購入下限は1個~キットの残り個数まで
         quantity = Mathf.Clamp(quantity - 1, 1, shopCondi.StyleKitCount);

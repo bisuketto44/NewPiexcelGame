@@ -31,6 +31,13 @@ public class AnimationUI : MonoBehaviour
     [SerializeField]
     GameObject PlayerObjects;
 
+    private SE_Contoroller sE_Contoroller;
+
+    void Awake()
+    {
+        sE_Contoroller = GameObject.FindWithTag("SE").GetComponent<SE_Contoroller>();
+    }
+
     //現在ライブを起動するアニメーション
     public void LiveWindowAnimationActivate_InActivate()
     {
@@ -40,6 +47,7 @@ public class AnimationUI : MonoBehaviour
         if (_liveWindowbool == false)
         {
             LiveNowMask.gameObject.SetActive(true);
+            sE_Contoroller.PlayDicideSound();
 
             _liveWindowbool = true;
             return;
@@ -47,6 +55,7 @@ public class AnimationUI : MonoBehaviour
         else
         {
             LiveNowMask.gameObject.SetActive(false);
+            sE_Contoroller.PlayCancelSound();
 
             _liveWindowbool = false;
             return;
@@ -62,6 +71,7 @@ public class AnimationUI : MonoBehaviour
         if (_liveWindowbool == false)
         {
             LiveNowMask.gameObject.SetActive(true);
+            sE_Contoroller.PlayDicideSound();
 
             _liveWindowbool = true;
             return;
@@ -69,6 +79,7 @@ public class AnimationUI : MonoBehaviour
         else
         {
             LiveNowMask.gameObject.SetActive(false);
+            sE_Contoroller.PlayCancelSound();
 
             _liveWindowbool = false;
             return;
@@ -89,7 +100,7 @@ public class AnimationUI : MonoBehaviour
         LiveNowWindow.gameObject.SetActive(false);
 
     }
-    
+
     //上記と同じくハイパーチャット図鑑のアニメーションイベントで呼ぶ
     public void ActivateBook()
     {

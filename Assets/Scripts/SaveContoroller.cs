@@ -10,17 +10,29 @@ public class SaveContoroller : MonoBehaviour
     [SerializeField]
     JunleLv_Judge junleLv_Judge;
 
+    [SerializeField]
+    private GameObject Tutorial;
+
+    void Awake()
+    {
+        //=================================================================================
+        //データリロード
+        //=================================================================================
+        SaveData.Instance.Reload();
+        //=================================================================================
+        //初回時はチュートリアルを自動表示する
+        //=================================================================================
+        if (SaveData.Instance.PreviousDataIsAvailableOrNot == false)
+        {
+            Tutorial.SetActive(true);
+        }
+    }
+
     /// <summary>
     /// ゲーム終了時にセーブを行うメソッド
     /// </summary>
     void OnApplicationQuit()
     {
-
-        //=================================================================================
-        //セーブデータがあるフラグを立てる
-        //=================================================================================
-        SaveData.Instance.PreviousDataIsAvailableOrNot = true;
-
         //=================================================================================
         //スタイルポイントのスキル振りをセーブ前にSaveDataインスタンスへ格納
         //=================================================================================
@@ -36,6 +48,28 @@ public class SaveContoroller : MonoBehaviour
         for (int i = 0; i < junleLv_Judge.EachSlider.Length; i++)
         {
             SaveData.Instance.ExpAmounts[i] = junleLv_Judge.EachSlider[i]._comprehensiveEXP;
+        }
+
+
+        //=================================================================================
+        //選択をリセット
+        //=================================================================================
+
+        for (int i = 0; i < SaveData.Instance.Style_Effective.Count; i++)
+        {
+            SaveData.Instance.Style_Effective[i].OnOrOff = false;
+        }
+        for (int i = 0; i < SaveData.Instance.junle_Effective.Count; i++)
+        {
+            SaveData.Instance.junle_Effective[i].OnorOff = false;
+        }
+        for (int i = 0; i < SaveData.Instance.motivation_Effective.Count; i++)
+        {
+            SaveData.Instance.motivation_Effective[i].OnOrOff = false;
+        }
+        for (int i = 0; i < SaveData.Instance.LiveTime.Count; i++)
+        {
+            SaveData.Instance.LiveTime[i].OnOrOff = false;
         }
 
         //=================================================================================
