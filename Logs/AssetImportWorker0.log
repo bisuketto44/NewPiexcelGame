@@ -1,10 +1,10 @@
 Using pre-set license
-Built from '2020.3/staging' branch; Version is '2020.3.11f1 (99c7afb366b3) revision 10078127'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 19042.1052; Version 2009; 64bit' Language: 'ja' Physical Memory: 16314 MB
+Built from '2020.3/staging' branch; Version is '2020.3.13f1 (71691879b7f5) revision 7432472'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.1110; Version 2009; 64bit' Language: 'ja' Physical Memory: 16314 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-C:\Users\bisuketto1\Unity\2020.3.11f1\Editor\Unity.exe
+C:\Users\bisuketto1\Unity\2020.3.13f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
@@ -15,7 +15,7 @@ C:/Users/bisuketto1/PixcelSimilation
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-53547
+52974
 Successfully changed project path to: C:/Users/bisuketto1/PixcelSimilation
 C:/Users/bisuketto1/PixcelSimilation
 Using Asset Import Pipeline V2.

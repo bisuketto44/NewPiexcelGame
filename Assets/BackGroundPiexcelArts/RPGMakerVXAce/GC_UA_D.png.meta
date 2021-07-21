@@ -14,6 +14,12 @@ TextureImporter:
   - first:
       213: -1919953662235695208
     second: Car5
+  - first:
+      213: -3256294273998664389
+    second: GC_UA_D_4
+  - first:
+      213: -8545995844618965273
+    second: GC_UA_D_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 31.9
+  spritePixelsToUnits: 31.97
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,7 +129,7 @@ TextureImporter:
         width: 64
         height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -144,7 +150,7 @@ TextureImporter:
         width: 64
         height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,7 +171,7 @@ TextureImporter:
         width: 109
         height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,7 +192,7 @@ TextureImporter:
         width: 70
         height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,6 +200,48 @@ TextureImporter:
       bones: []
       spriteID: 8972b390154fa55e0800000000000000
       internalID: -1919953662235695208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GC_UA_D_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 104
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3dcb224c915fc2d0800000000000000
+      internalID: -3256294273998664389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GC_UA_D_5
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 112
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eea585de06866980800000000000000
+      internalID: -8545995844618965273
       vertices: []
       indices: 
       edges: []

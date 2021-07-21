@@ -41,6 +41,7 @@ TagManager:
   - collUP
   - collDOWN
   - SE
+  - BGM
   layers:
   - Default
   - TransparentFX
