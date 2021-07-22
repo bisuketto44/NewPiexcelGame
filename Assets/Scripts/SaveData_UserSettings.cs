@@ -47,9 +47,9 @@ public class SaveData_UserSettings : ISerializationCallbackReceiver
     public float oldTime;
 
     [SerializeField]
-    public float SEfloat;
+    public float SEfloat = 1f;
     [SerializeField]
-    public float BGMfloat;
+    public float BGMfloat = 1f;
 
 
 
