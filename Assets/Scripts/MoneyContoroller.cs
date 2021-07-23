@@ -11,6 +11,12 @@ public class MoneyContoroller : MonoBehaviour
     [SerializeField]
     private Text MoneyText;
 
+    void Start()
+    {
+        PossesedMoney = SaveData.Instance.moneys;
+        MoneyText.text = PossesedMoney.ToString("N0");
+    }
+
     //お金を使う
     public void SpendMoney(int spendmoney)
     {

@@ -20,23 +20,34 @@ SpriteAtlas:
       readable: 0
       crunchedCompression: 0
       sRGB: 1
-    platformSettings: []
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
       padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 1
-      enableTightPacking: 1
+      enableRotation: 0
+      enableTightPacking: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: 86c0b2382019f7c49ab10f9eae557a99, type: 3}
     - {fileID: 2800000, guid: cd3646388545fe2429411c02dfffcaf5, type: 3}
     - {fileID: 2800000, guid: d8dc04a670964374e87a543c0ba810f8, type: 3}
-    - {fileID: 2800000, guid: d4836dcec0ae1bc499272bafee1e3408, type: 3}
     - {fileID: 2800000, guid: b172388bf8ead5d41a3ecebd0441bda6, type: 3}
-    totalSpriteSurfaceArea: 918223
+    totalSpriteSurfaceArea: 901368
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -921,12 +932,6 @@ SpriteAtlas:
   - {fileID: -4172486778143732485, guid: b172388bf8ead5d41a3ecebd0441bda6, type: 3}
   - {fileID: -3400687453437097815, guid: b172388bf8ead5d41a3ecebd0441bda6, type: 3}
   - {fileID: 3951297219979671399, guid: b172388bf8ead5d41a3ecebd0441bda6, type: 3}
-  - {fileID: 320813938024165969, guid: d4836dcec0ae1bc499272bafee1e3408, type: 3}
-  - {fileID: -8812307484430527482, guid: d4836dcec0ae1bc499272bafee1e3408, type: 3}
-  - {fileID: -1919953662235695208, guid: d4836dcec0ae1bc499272bafee1e3408, type: 3}
-  - {fileID: 7240308924953706177, guid: d4836dcec0ae1bc499272bafee1e3408, type: 3}
-  - {fileID: -3256294273998664389, guid: d4836dcec0ae1bc499272bafee1e3408, type: 3}
-  - {fileID: -8545995844618965273, guid: d4836dcec0ae1bc499272bafee1e3408, type: 3}
   m_PackedSpriteNamesToIndex:
   - Tileset_32x32_13_0
   - Tileset_32x32_13_1
@@ -1807,12 +1812,6 @@ SpriteAtlas:
   - Tilemap_422
   - Tilemap_540
   - Tilemap_423
-  - Car3
-  - Car2
-  - Car5
-  - Car4
-  - GC_UA_D_4
-  - GC_UA_D_5
   m_RenderDataMap: {}
   m_Tag: New Sprite Atlas
   m_IsVariant: 0

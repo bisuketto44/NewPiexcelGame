@@ -13,6 +13,11 @@ public class SaveContoroller : MonoBehaviour
     [SerializeField]
     private GameObject Tutorial;
 
+    [SerializeField]
+    MoneyContoroller MoneyContoroller;
+
+
+
     void Awake()
     {
         //=================================================================================
@@ -71,6 +76,13 @@ public class SaveContoroller : MonoBehaviour
         {
             SaveData.Instance.LiveTime[i].OnOrOff = false;
         }
+
+
+        //=================================================================================
+        //お金の保存
+        //=================================================================================
+        
+        SaveData.Instance.moneys = MoneyContoroller.PossesedMoney;
 
         //=================================================================================
         //セーブを実行

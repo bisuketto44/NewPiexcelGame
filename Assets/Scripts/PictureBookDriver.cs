@@ -22,6 +22,7 @@ public class PictureBookDriver : MonoBehaviour
     private bool right;
 
     private SE_Contoroller sE_Contoroller;
+    
 
     void Awake()
     {

@@ -25,6 +25,7 @@ public class Layout_BtnPro_BOXCS : MonoBehaviour
     //決定ボタンを押したときの処理
     public void InstansiateItems(int temp)
     {
+        
         //UpDate等で変更した後の数値はもう一回UnityEditor上から見つけてくる必要がある(同じCLASS内でも)
         _ddItems = GameObject.Find("Layout_Items(DD)");
         GameObject ThisGG = GameObject.FindWithTag("Now_Choose_LayoutItems");

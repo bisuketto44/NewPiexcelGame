@@ -37,6 +37,9 @@ public class SaveData : ISerializationCallbackReceiver
     //前回のデータが存在するかどうかを確認する
     public bool PreviousDataIsAvailableOrNot;
 
+    //お金
+    public int moneys;
+
     //ViewerCountCS
     public int MaxViewer = 0;
 
