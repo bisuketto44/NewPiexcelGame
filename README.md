@@ -105,7 +105,19 @@ float fDistance = Vector2.Distance(_pointA, _pointB);
 ・<a href="https://github.com/bisuketto44/NewPiexcelGame/blob/master/Assets/Scripts/Activate_RaderChart.cs">Activate_RaderChart.cs</a></p>
 <p>6角形のレーダーチャートを作成したいので、</p>
 
-<div class="snippet-clipboard-content position-relative" data-snippet-clipboard-copy-content="        //生成するメッシュ
+<div class="snippet-clipboard-content position-relative" data-snippet-clipboard-copy-content=" //生成するメッシュ
+        Mesh mesh = new Mesh();
+        //頂点の位置をvector3配列で指定(五角形=6 六角形=7 三角形=3)
+        Vector3[] vertices = new Vector3[7];
+        //同じく頂点の位置をvector2配列で指定(Mesh生成に必要)
+        Vector2[] uv = new Vector2[7];
+        //描画順をInt配列で指定(三角形*何個必要か)
+        int[] triangles = new int[3 * 6];
+        //頂点の最大地点(大きさ)を決定
+        float raderChartSize = 45f;
+        //角度計算
+        float angleIncrement = 360f / 6;
+"><pre><code>        //生成するメッシュ
         Mesh mesh = new Mesh();
 
         //頂点の位置をvector3配列で指定(五角形=6 六角形=7 三角形=3)
@@ -122,7 +134,7 @@ float fDistance = Vector2.Distance(_pointA, _pointB);
 
         //角度計算
         float angleIncrement = 360f / 6;
-"><pre><code> 
+</code></pre></div>
 
 <p>それぞれ頂点位置や角度を指定します。6角形のメッシュは3角形を6つ生成することで作り出すので、３＊６のint配列を用意しておきます。<br>
 あとはそれぞれの3角形の描画順を指定し、ステータスが上がるたびに、各頂点部分スケールさせレーダーチャートを作成します。<br>
