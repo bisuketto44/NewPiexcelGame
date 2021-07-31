@@ -104,6 +104,7 @@ float fDistance = Vector2.Distance(_pointA, _pointB);
 ・<a href="https://github.com/bisuketto44/NewPiexcelGame/blob/master/Assets/Scripts/Style_Status_Management.cs">Style_Status_Management.cs</a><br>
 ・<a href="https://github.com/bisuketto44/NewPiexcelGame/blob/master/Assets/Scripts/Activate_RaderChart.cs">Activate_RaderChart.cs</a></p>
 <p>6角形のレーダーチャートを作成したいので、</p>
+
 <div class="snippet-clipboard-content position-relative" data-snippet-clipboard-copy-content="        //生成するメッシュ
         Mesh mesh = new Mesh();
 
@@ -139,11 +140,13 @@ float fDistance = Vector2.Distance(_pointA, _pointB);
         //角度計算
         float angleIncrement = 360f / 6;
 </code></pre></div>
+
 <p>それぞれ頂点位置や角度を指定します。6角形のメッシュは3角形を6つ生成することで作り出すので、３＊６のint配列を用意しておきます。<br>
 あとはそれぞれの3角形の描画順を指定し、ステータスが上がるたびに、各頂点部分スケールさせレーダーチャートを作成します。<br>
 頂点位置はいつものことながら正規化して決定します。</p>
 <p>注意点としてGuI上でメッシュを生成し、Mask機能で隠す場合にメッシュのStencil Comparisionがデフォルト値ではうまく機能しないので、変更を加えておく必要があります。<br>
 今回はStencil Comparision = 6に設定しています。</p>
+
 <h2></h2><h3 id="user-content-save"><a id="user-content-jsonによるセーブシステム" class="anchor" aria-hidden="true" href="#jsonによるセーブシステム"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Jsonによるセーブシステム</h3>
 <p>・<a href="https://github.com/bisuketto44/NewPiexcelGame/blob/master/Assets/Scripts/SaveData.cs">SaveData.cs</a><br>
 ・<a href="https://gist.github.com/kankikuchi/d33d1072b8518b412908dd55a0897024">kankikuchi</a>さんのJsonでのclass保存を使用させて頂いております。</p>
